@@ -1,16 +1,67 @@
-## Hi there 👋
+# KwonTaekJu
 
-<!--
-**KweonTJ/KweonTJ** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Robotics Engineer interested in ROS 2, mobile manipulators, 3D perception, and autonomous navigation.
 
-Here are some ideas to get you started:
+I mainly develop robot systems using ROS 2 Humble, C++, Python, RGB-D cameras, and mobile manipulation platforms.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## Interests
+
+- ROS 2 Humble
+- Mobile Manipulator
+- 3D Perception
+- RGB-D Camera
+- Object Localization
+- Autonomous Navigation
+- Nav2
+- SLAM
+- Robot Manipulation
+- Multi-Robot System
+
+---
+
+## Main Project
+
+### 3D Perception Based Mobile Manipulator & Autonomous Navigation System
+
+ROS 2 기반 모바일 매니퓰레이터 시스템입니다.  
+3D 카메라를 이용해 객체 위치를 추정하고, 매니퓰레이터 제어와 자율주행을 통합하는 것을 목표로 합니다.
+
+- 3D camera based object localization
+- Mobile manipulator control
+- Pick & Place
+- Nav2 based autonomous navigation
+- RViz visualization
+
+Repository:  
+[3D Perception Based Mobile Manipulator & Autonomous Navigation System](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)
+
+---
+
+## Tech Stack
+
+![ROS2](https://img.shields.io/badge/ROS%202-Humble-22314E?style=flat-square&logo=ros&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-E95420?style=flat-square&logo=ubuntu&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
+![NVIDIA](https://img.shields.io/badge/NVIDIA-RTX%204050-76B900?style=flat-square&logo=nvidia&logoColor=white)
+
+---
+
+## Current Focus
+
+- ROS 2 C++ package development
+- 3D object position estimation
+- Mobile manipulator system integration
+- Autonomous navigation with Nav2
+- Robot simulation with Gazebo / Isaac Sim
+
+---
+
+## GitHub Stats
+
+![KweonTJ's GitHub stats](https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KweonTJ&layout=compact&theme=tokyonight)
