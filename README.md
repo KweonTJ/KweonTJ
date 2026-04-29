@@ -50,15 +50,6 @@ Repository:
 
 ---
 
-## Current Focus
-
-- ROS 2 C++ package development
-- 3D object position estimation
-- Mobile manipulator system integration
-- Autonomous navigation with Nav2
-- Robot simulation with Gazebo / Isaac Sim
-
----
 
 ## GitHub Stats
 
