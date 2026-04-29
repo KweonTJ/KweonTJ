@@ -39,6 +39,22 @@ Repository:
 
 ---
 
+## GitHub Stats
+
+<div align="center">
+
+  <img src="https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KweonTJ&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&hide=jupyter%20notebook" height="160" />
+
+</div>
+
+<div align="center">
+
+  <img src="https://streak-stats.demolab.com?user=KweonTJ&theme=tokyonight&hide_border=true" height="160" />
+
+</div>
+
+---
 ## Tech Stack
 
 ![ROS2](https://img.shields.io/badge/ROS%202-Humble-22314E?style=flat-square&logo=ros&logoColor=white)
@@ -49,10 +65,3 @@ Repository:
 ![NVIDIA](https://img.shields.io/badge/NVIDIA-RTX%204050-76B900?style=flat-square&logo=nvidia&logoColor=white)
 
 ---
-
-
-## GitHub Stats
-
-![KweonTJ's GitHub stats](https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KweonTJ&layout=compact&theme=tokyonight)
