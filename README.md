@@ -14,8 +14,6 @@ I mainly develop robot systems using ROS 2 Humble, C++, Python, RGB-D cameras, a
 - RGB-D Camera
 - Object Localization
 - Autonomous Navigation
-- Nav2
-- SLAM
 - Robot Manipulation
 - Multi-Robot System
 
