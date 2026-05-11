@@ -40,9 +40,14 @@ Repository:
 ## GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" width="32%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KweonTJ&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&hide=jupyter%20notebook" width="32%" />
-  <img src="https://streak-stats.demolab.com?user=KweonTJ&theme=tokyonight&hide_border=true" width="32%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KweonTJ&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&hide=jupyter%20notebook" height="165" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com/?user=KweonTJ&theme=tokyonight&hide_border=true" height="165" />
 </div>
 
 ---
