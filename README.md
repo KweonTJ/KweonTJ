@@ -1,4 +1,4 @@
-# KwonTaekJu
+# Kwon Taek Ju
 
 Robotics Engineer interested in ROS 2, mobile manipulators, 3D perception, and autonomous navigation.
 
