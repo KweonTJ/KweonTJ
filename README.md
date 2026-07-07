@@ -12,26 +12,6 @@
 
 </div>
 
----
-
-## 🤖 Robotics Developer Mode
-
-```yaml
-name: Kwon Taek Ju
-role: Robotics Engineer
-mission: Turn perception data into reliable robot behavior
-stack:
-  middleware: ROS 2 Humble
-  languages: [C++, Python]
-  platforms: [Ubuntu 22.04, Mobile Manipulator, RGB-D Camera]
-  domains: [3D Perception, Manipulation, Navigation, Multi-Robot Systems]
-currently_building: 3D perception based mobile manipulator + autonomous navigation system
-```
-
-I develop robot systems that connect **3D perception**, **motion planning**, **manipulator control**, and **Nav2-based autonomous navigation** into practical robotic workflows.
-
----
-
 ## 🧠 Core Signals
 
 <table>
