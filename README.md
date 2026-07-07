@@ -39,39 +39,6 @@
 
 ---
 
-## 🚀 Featured Project
-
-<div align="center">
-
-<a href="https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=KweonTJ&repo=3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=22D3EE&text_color=C9D1D9&icon_color=38BDF8" alt="Featured robotics project" />
-</a>
-
-</div>
-
-### 3D Perception Based Mobile Manipulator & Autonomous Navigation System
-
-ROS 2 기반 모바일 매니퓰레이터 시스템입니다. 3D 카메라로 객체 위치를 추정하고, 매니퓰레이터 제어와 자율주행을 하나의 로봇 시스템으로 통합하는 프로젝트입니다.
-
-```mermaid
-graph LR
-  A[RGB-D Camera] --> B[3D Perception]
-  B --> C[Object Localization]
-  C --> D[Manipulator Control]
-  D --> E[Pick & Place]
-  C --> F[Nav2 Navigation]
-  F --> G[Autonomous Mobile Robot]
-```
-
-**Highlights**
-- 3D camera based object localization
-- Mobile manipulator control
-- Pick & Place task flow
-- Nav2 based autonomous navigation
-- RViz visualization and system debugging
-
----
-
 ## 🛠️ Tech Arsenal
 
 <div align="center">
