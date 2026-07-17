@@ -47,13 +47,3 @@
 </div>
 
 ---
-
-## 🧭 Engineering Philosophy
-
-> Build robot software like real robots depend on it: modular, observable, testable, and ready for the messy physical world.
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:22D3EE,55:1E40AF,100:0F172A&height=120&section=footer" alt="footer" width="100%" />
-
-</div>
