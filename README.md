@@ -12,31 +12,6 @@
 
 </div>
 
-## 🧠 Core Signals
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Perception
-- RGB-D camera pipelines
-- 3D object localization
-- OpenCV-based preprocessing
-- RViz visualization for debugging
-
-</td>
-<td width="50%" valign="top">
-
-### Robot Intelligence
-- ROS 2 node architecture
-- Mobile manipulator integration
-- Pick & Place workflows
-- Nav2 autonomous navigation
-
-</td>
-</tr>
-</table>
-
 ---
 
 ## 🛠️ Tech Arsenal
