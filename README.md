@@ -1,49 +1,38 @@
-<div align="center">
+# Kwon Taek Ju
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,45:1E40AF,100:22D3EE&height=220&section=header&text=Kwon%20Taek%20Ju&fontColor=E0F2FE&fontSize=56&fontAlignY=38&desc=Robotics%20Engineer%20%7C%20ROS%202%20%7C%20Perception%20%7C%20Autonomous%20Systems&descAlignY=58&descSize=18" alt="header" width="100%" />
+Robotics Engineer focused on **robot control, reinforcement learning, perception, and autonomous systems**.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2800&pause=900&color=22D3EE&center=true&vCenter=true&width=900&lines=Building+robots+that+see%2C+plan%2C+and+move.;ROS+2+Humble+%7C+C%2B%2B+%7C+Python+%7C+RGB-D+Perception;Mobile+Manipulators+%2B+Autonomous+Navigation)](https://git.io/typing-svg)
+I develop robotic systems from simulation to real hardware, mainly working with **ROS 2**, **quadruped robots**, **mobile robots**, and **3D perception**.
 
-<br />
+## Research & Development
 
-<a href="https://github.com/KweonTJ?tab=followers"><img src="https://img.shields.io/github/followers/KweonTJ?style=for-the-badge&logo=github&label=FOLLOWERS&color=22D3EE&labelColor=0F172A" alt="GitHub followers" /></a>
-<img src="https://komarev.com/ghpvc/?username=KweonTJ&style=for-the-badge&color=22D3EE&label=PROFILE+VIEWS" alt="Profile views" />
-<img src="https://img.shields.io/badge/Focus-Robotics%20Systems-22D3EE?style=for-the-badge&labelColor=0F172A" alt="Robotics Systems" />
+- Quadruped locomotion and reinforcement learning
+- Sim-to-real deployment for Unitree Go2
+- ROS 2 robot control and middleware integration
+- 3D perception, RGB-D sensing, and SLAM
+- Mobile manipulation and autonomous navigation
 
-</div>
+## Selected Projects
 
----
+### [Unitree Go2 ROS2 Control](https://github.com/KweonTJ/Unitree_Go2_ROS2_Control)
+ROS 2 control bridge for Unitree Go2. Converts standard `geometry_msgs/Twist` commands into Go2 Sport API commands for real-robot control and keyboard teleoperation.
 
-## 🛠️ Tech Arsenal
+### [HIMLoco Horizontal](https://github.com/KweonTJ/HIMLoco_Horizontal)
+Reinforcement-learning locomotion research for Unitree Go2 based on HIMLoco, with a focus on stable traversal, body-motion reduction, and path tracking over uneven terrain.
 
-<div align="center">
+### [3D Perception-Based Mobile Manipulator](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)
+ROS 2 mobile-manipulation system combining RGB-D perception, 3D position estimation, OpenManipulator-X control, autonomous navigation, and multi-robot cooperation.
 
-<img src="https://skillicons.dev/icons?i=cpp,python,ros,ubuntu,opencv,linux,git,github,vscode&theme=dark" alt="Tech stack icons" />
+## Tech Stack
 
-<br /><br />
+**Languages**  
+C++ · Python
 
-<img src="https://img.shields.io/badge/ROS%202-Humble-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS 2 Humble" />
-<img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/Ubuntu-22.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu 22.04" />
-<img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV" />
-<img src="https://img.shields.io/badge/NVIDIA-RTX%204050-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA RTX 4050" />
+**Robotics**  
+ROS 2 · Gazebo · Isaac Gym / Isaac Lab · MuJoCo
 
-</div>
+**Perception & AI**  
+OpenCV · RGB-D · SLAM · Reinforcement Learning
 
----
-
-## 📡 GitHub Telemetry
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=KweonTJ&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=22D3EE&icon_color=38BDF8&text_color=C9D1D9" alt="GitHub stats" />
-<img height="165" src="https://github-readme-streak-stats.herokuapp.com?user=KweonTJ&theme=tokyonight&hide_border=true&background=0D1117&ring=22D3EE&fire=38BDF8&currStreakLabel=22D3EE" alt="GitHub streak" />
-
-<br /><br />
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=KweonTJ&theme=react-dark&hide_border=true&bg_color=0D1117&color=22D3EE&line=38BDF8&point=E0F2FE" alt="GitHub activity graph" width="95%" />
-
-</div>
-
----
+**Environment**  
+Ubuntu · Linux · Git · GitHub
