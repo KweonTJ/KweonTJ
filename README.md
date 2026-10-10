@@ -6,6 +6,8 @@
 
 I connect **learning-based control, 3D perception, and hardware** to build legged robots, mobile manipulators, and autonomous systems.
 
+**Contact** · [cbnuai@chungbuk.ac.kr](mailto:cbnuai@chungbuk.ac.kr)
+
 ## Selected work
 
 | Project | Focus |
