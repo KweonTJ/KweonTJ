@@ -1,25 +1,25 @@
 <p>
-  <img src="./assets/profile-header.svg" width="100%" alt="Kwon Taek Ju · Robotics Engineer" />
+  <img src="./assets/profile-hero.png" width="100%" alt="Kwon Taek Ju — Robotics, Control, Learning. Conceptual robotics illustration." />
 </p>
 
-I work on **robot control, reinforcement learning, and 3D perception**, with ROS 2 and Unitree Go2.
+**Robotics Engineer · Robot Learning & Autonomous Systems**
+
+I connect **learning-based control, 3D perception, and hardware** to build legged robots, mobile manipulators, and autonomous systems.
 
 ## Selected work
 
-### [HIMLoco Horizontal](https://github.com/KweonTJ/HIMLoco_Horizontal)
-Reinforcement-learning locomotion for Unitree Go2. Focused on body stability and path tracking over uneven terrain.
+| Project | Focus |
+| :--- | :--- |
+| **[Go2 locomotion](https://github.com/KweonTJ/HIMLoco_Horizontal)** | Reinforcement learning for uneven terrain, body stability, and path tracking. |
+| **[OMX learning](https://github.com/KweonTJ/omx_train_ws)** · [Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot) | MuJoCo PPO training and ROS 2 pick-and-place with ArUco perception. |
+| **[3D mobile manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)** | RGB-D localization, manipulation, and leader–follower transport. |
+| **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)** | Jetson-based RGB-D SLAM, person detection, and UWB rescue mapping. |
+| **[Dual Arm](https://github.com/KweonTJ/Dual_Arm)** · [ORV 4WD](https://github.com/KweonTJ/ORV_4WD) | Robot modeling, physics simulation, and hardware-control interfaces. |
+| **[MORAI driving](https://github.com/KweonTJ/MORAI_Simulation)** · [CAN](https://github.com/KweonTJ/CAN_Protocol) | Path tracking, LiDAR perception, and vehicle communication. |
 
-**29 m mixed-terrain course · 5/5 completed in Isaac Gym**<br>
-<sub>model_3800 · seeds 42–46 · hardware validation pending</sub>
+## Toolkit
 
-### [Unitree Go2 ROS 2 Control](https://github.com/KweonTJ/Unitree_Go2_ROS2_Control)
-ROS 2 control bridge for real Go2 hardware. Converts `geometry_msgs/Twist` into Sport API commands, with keyboard teleoperation and timed trajectory control.
+**C++ · Python · ROS 2 · PyTorch · OpenCV**<br>
+Isaac Gym / Isaac Sim · MuJoCo / MJX · Gazebo · Jetson · Dynamixel
 
-### [3D Perception & Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)
-RGB-D perception, 3D position estimation, and OpenManipulator-X control. Integrates pick-and-place, autonomous navigation, and multi-robot cooperation in ROS 2.
-
-## Tools
-
-**C++ · Python · ROS 2**<br>
-Isaac Gym / Isaac Lab · MuJoCo · Gazebo<br>
-OpenCV · Ubuntu · Linux · Git
+[**Explore all projects →**](./docs/repositories.md)
