@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Kwon Taek Ju — Robotics Engineer</title>
+  <desc id="description">From simulation to real-world motion. A teal quadruped line drawing on a dark navy engineering grid.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#203047" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="background" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101B2D"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="1200" height="360" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="360" fill="url(#background)"/>
+    <rect x="720" width="480" height="360" fill="url(#grid)"/>
+    <path d="M0 0H1200" stroke="#5EEAD4" stroke-width="6"/>
+    <rect x="56" y="58" width="8" height="8" rx="2" fill="#5EEAD4"/>
+    <text x="78" y="70" fill="#5EEAD4" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3">ROBOTICS ENGINEER</text>
+    <text x="56" y="157" fill="#F1F5F9" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Kwon Taek Ju</text>
+    <text x="59" y="207" fill="#C5D2E3" font-family="Arial, Helvetica, sans-serif" font-size="25">From simulation to real-world motion.</text>
+    <path d="M59 244H111" stroke="#5EEAD4" stroke-width="3"/>
+    <text x="59" y="295" fill="#A8B9CD" font-family="Arial, Helvetica, sans-serif" font-size="17" letter-spacing="2">CONTROL / LEARNING / PERCEPTION</text>
+    <circle cx="956" cy="171" r="113" stroke="#284456"/>
+    <circle cx="956" cy="171" r="85" stroke="#284456" stroke-dasharray="4 8"/>
+    <path d="M787 273H1128" stroke="#516079" stroke-width="2" stroke-linecap="round"/>
+    <g stroke="#438F91" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M907 175L881 217L904 266M1014 175L982 216L1007 266"/>
+    </g>
+    <g stroke="#5EEAD4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M882 151H1016L1043 170L1023 192H886Z" fill="#102F3B"/>
+      <path d="M900 185L934 226L913 270H894M1011 185L1043 224L1027 270H1048"/>
+    </g>
+    <g fill="#101B2D" stroke="#B1FFF0" stroke-width="3">
+      <circle cx="900" cy="185" r="7"/>
+      <circle cx="934" cy="226" r="6"/>
+      <circle cx="1011" cy="185" r="7"/>
+      <circle cx="1043" cy="224" r="6"/>
+    </g>
+    <rect x="948" y="135" width="27" height="15" rx="5" fill="#5EEAD4"/>
+    <circle cx="1025" cy="165" r="4" fill="#FBBF24"/>
+    <path d="M1059 145L1100 120M1066 166H1114M1059 188L1100 209" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+    <text x="874" y="313" fill="#8BA8BD" font-family="Arial, Helvetica, sans-serif" font-size="14" letter-spacing="3">SIM → REAL</text>
+  </g>
+</svg>
