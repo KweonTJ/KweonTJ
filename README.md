@@ -23,43 +23,13 @@ My work spans **Go2 locomotion, OpenMANIPULATOR-X manipulation, and Jetson-based
 
 ## Toolkit
 
-<table>
-<tr>
-<td width="50%" valign="top">
-<h4>Programming & development</h4>
-<p><b>C++ · Python · C</b><br>
-Ubuntu / Linux · Git · Docker</p>
-</td>
-<td width="50%" valign="top">
-<h4>Robotics & control</h4>
-<p><b>ROS 2 · ros2_control · TF2</b><br>
-URDF · RViz2 · PID · Pure Pursuit</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<h4>Robot learning</h4>
-<p><b>PyTorch · PPO</b><br>
-Stable-Baselines3 · Gymnasium · JAX / Brax</p>
-</td>
-<td width="50%" valign="top">
-<h4>Simulation</h4>
-<p><b>Isaac Gym · Isaac Sim · MuJoCo / MJX</b><br>
-Gazebo · MORAI</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<h4>Perception & mapping</h4>
-<p><b>OpenCV · RGB-D · ArUco</b><br>
-RTAB-Map · YOLO · MediaPipe</p>
-</td>
-<td width="50%" valign="top">
-<h4>Hardware & communication</h4>
-<p><b>Jetson · Raspberry Pi · Arduino</b><br>
-Dynamixel · CAN / DBC · UWB</p>
-</td>
-</tr>
-</table>
+| Area | Technologies |
+| :--- | :--- |
+| **Programming & development** | C++ · Python · C · Ubuntu / Linux · Git · Docker |
+| **Robotics & control** | ROS 2 · ros2_control · TF2 · URDF · RViz2 · PID · Pure Pursuit |
+| **Robot learning** | PyTorch · PPO · Stable-Baselines3 · Gymnasium · JAX / Brax |
+| **Simulation** | Isaac Gym · Isaac Sim · MuJoCo / MJX · Gazebo · MORAI |
+| **Perception & mapping** | OpenCV · RGB-D · ArUco · RTAB-Map · YOLO · MediaPipe |
+| **Hardware & communication** | Jetson · Raspberry Pi · Arduino · Dynamixel · CAN / DBC · UWB |
 
 [**Explore all projects →**](./docs/repositories.md)
