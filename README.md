@@ -1,15 +1,15 @@
-<div align="center">
+# Kwon Taek Ju
 
-<h1>Kwon Taek Ju</h1>
-<p><b>Robotics · Learning · Control</b></p>
+**Robotics · Learning · Control**
 
-<p>I build learning-based controllers and perception systems<br>for legged robots and mobile manipulators.</p>
+I build learning-based controllers and perception systems for legged robots and mobile manipulators.
 
-<p><a href="mailto:cbnuai@chungbuk.ac.kr">cbnuai@chungbuk.ac.kr</a> &nbsp; / &nbsp; <a href="./docs/repositories.md">Project index</a></p>
-
-</div>
+[cbnuai@chungbuk.ac.kr](mailto:cbnuai@chungbuk.ac.kr) &nbsp; / &nbsp; [All projects](./docs/repositories.md)
 
 ## Selected work
+
+<a href="https://github.com/KweonTJ/ORV_4WD"><img src="./assets/projects/orv-4wd.png" width="440" alt="ORV 4WD rover model in a MuJoCo simulation" /></a><br>
+<sub><b>ORV 4WD</b> — MuJoCo simulation preview · ROS 2 rover integration</sub>
 
 | Project | Focus |
 | :--- | :--- |
@@ -17,8 +17,8 @@
 | **[OMX Learning](https://github.com/KweonTJ/omx_train_ws)** · **[Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot)**<br><sub>MuJoCo · PPO · ROS 2</sub> | Residual control for pick-and-place, with a ROS 2 robot runtime. |
 | **[3D Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)**<br><sub>RGB-D · ROS 2 · TurtleBot3</sub> | Perception-guided manipulation and leader–follower transport. |
 | **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)**<br><sub>Jetson · SLAM · UWB</sub> | Person detection and rescue mapping on an edge device. |
+| **[ORV 4WD](https://github.com/KweonTJ/ORV_4WD)**<br><sub>ROS 2 · MuJoCo · Arduino</sub> | Four-wheel rover integration, encoder/PID firmware, odometry, and a configuration GUI. |
 
-<sub>Also: <a href="https://github.com/KweonTJ/Dual_Arm">Dual Arm</a> · <a href="https://github.com/KweonTJ/ORV_4WD">ORV 4WD</a> · <a href="https://github.com/KweonTJ/MORAI_Simulation">MORAI Driving</a></sub>
 
 ## Toolkit
 
