@@ -1,55 +1,40 @@
 <div align="center">
 
-<img src="./assets/research-strip.svg" width="720" alt="Research themes: control, learning, and perception" />
-
 <h1>Kwon Taek Ju</h1>
+<p><b>Robotics · Learning · Control</b></p>
 
-<p><b>Robotics Engineer</b></p>
-<p><i>Legged Robots · Reinforcement Learning · Mobile Manipulation · 3D Perception</i></p>
+<p>I build learning-based controllers and perception systems<br>for legged robots and mobile manipulators.</p>
 
-<a href="mailto:cbnuai@chungbuk.ac.kr"><img src="./assets/badges/email.svg" alt="Email Kwon Taek Ju" /></a>
-<a href="https://github.com/KweonTJ"><img src="./assets/badges/github.svg" alt="GitHub" /></a>
-<a href="./docs/repositories.md"><img src="./assets/badges/projects.svg" alt="All projects" /></a>
-
-<p><sub><a href="mailto:cbnuai@chungbuk.ac.kr">cbnuai@chungbuk.ac.kr</a></sub></p>
+<p><a href="mailto:cbnuai@chungbuk.ac.kr">cbnuai@chungbuk.ac.kr</a> &nbsp; / &nbsp; <a href="./docs/repositories.md">Project index</a></p>
 
 </div>
 
-## 👋 About Me
+## Selected work
 
-- I work on **robot learning and control**, with a focus on quadruped locomotion and mobile manipulation.
-- I connect **simulation, RGB-D perception, and ROS 2** to develop policies, robot interfaces, and integrated systems.
+| Project | Focus |
+| :--- | :--- |
+| **[Go2 Locomotion](https://github.com/KweonTJ/HIMLoco_Horizontal)**<br><sub>Isaac Gym · Reinforcement learning</sub> | Uneven-terrain locomotion, body stability, and path tracking. |
+| **[OMX Learning](https://github.com/KweonTJ/omx_train_ws)** · **[Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot)**<br><sub>MuJoCo · PPO · ROS 2</sub> | Residual control for pick-and-place, with a ROS 2 robot runtime. |
+| **[3D Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)**<br><sub>RGB-D · ROS 2 · TurtleBot3</sub> | Perception-guided manipulation and leader–follower transport. |
+| **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)**<br><sub>Jetson · SLAM · UWB</sub> | Person detection and rescue mapping on an edge device. |
 
-## 🔬 Selected Projects
+<sub>Also: <a href="https://github.com/KweonTJ/Dual_Arm">Dual Arm</a> · <a href="https://github.com/KweonTJ/ORV_4WD">ORV 4WD</a> · <a href="https://github.com/KweonTJ/MORAI_Simulation">MORAI Driving</a></sub>
 
-- **[Go2 Locomotion](https://github.com/KweonTJ/HIMLoco_Horizontal)** <img src="./assets/badges/locomotion.svg" alt="Locomotion" />
-  <br>Reinforcement learning for uneven terrain, body stability, and path tracking in Isaac Gym.
-- **[OMX Learning](https://github.com/KweonTJ/omx_train_ws) · [Robot Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot)** <img src="./assets/badges/manipulation.svg" alt="Manipulation" />
-  <br>PPO residual control for pick-and-place, from MuJoCo training to ROS 2 integration.
-- **[3D Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)** <img src="./assets/badges/perception.svg" alt="Perception" />
-  <br>RGB-D localization, manipulation, and TurtleBot3 leader–follower transport.
-- **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)** <img src="./assets/badges/edge-ai.svg" alt="Edge AI" />
-  <br>Jetson-based SLAM, person detection, and rescue mapping with UWB communication.
-
-<sub>More work: <a href="https://github.com/KweonTJ/Dual_Arm">Dual Arm</a> · <a href="https://github.com/KweonTJ/ORV_4WD">ORV 4WD</a> · <a href="https://github.com/KweonTJ/MORAI_Simulation">MORAI Driving</a> · <a href="./docs/repositories.md">Full project index →</a></sub>
-
-## 🛠️ Tech Stack
+## Toolkit
 
 <p>
-  <img src="./assets/badges/cpp.svg" alt="C++" />
-  <img src="./assets/badges/python.svg" alt="Python" />
-  <img src="./assets/badges/c.svg" alt="C" />
-  <img src="./assets/badges/ros2.svg" alt="ROS 2" />
-  <img src="./assets/badges/pytorch.svg" alt="PyTorch" />
-  <img src="./assets/badges/opencv.svg" alt="OpenCV" />
-  <br>
-  <img src="./assets/badges/isaac-sim.svg" alt="Isaac Sim" />
-  <img src="./assets/badges/mujoco.svg" alt="MuJoCo" />
-  <img src="./assets/badges/linux.svg" alt="Linux" />
-  <img src="./assets/badges/docker.svg" alt="Docker" />
-  <img src="./assets/badges/jetson.svg" alt="Jetson" />
-  <img src="./assets/badges/git.svg" alt="Git" />
+  <img src="./assets/icons/cpp.svg" width="28" height="28" alt="C++" title="C++" /> &nbsp;
+  <img src="./assets/icons/python.svg" width="28" height="28" alt="Python" title="Python" /> &nbsp;
+  <img src="./assets/icons/ros.svg" width="28" height="28" alt="ROS 2" title="ROS 2" /> &nbsp;
+  <img src="./assets/icons/pytorch.svg" width="28" height="28" alt="PyTorch" title="PyTorch" /> &nbsp;
+  <img src="./assets/icons/opencv.svg" width="28" height="28" alt="OpenCV" title="OpenCV" /> &nbsp;
+  <img src="./assets/icons/docker.svg" width="28" height="28" alt="Docker" title="Docker" />
 </p>
 
-**Control & learning** · ros2_control · TF2 · PPO · Stable-Baselines3 · JAX / Brax<br>
-**Simulation & hardware** · Isaac Gym · MuJoCo MJX · Gazebo · Raspberry Pi · Arduino · Dynamixel · CAN / UWB
+| Area | Tools & methods |
+| :--- | :--- |
+| **Development** | C / C++ · Python · Linux · Git · Docker |
+| **Robot learning** | PyTorch · PPO · Stable-Baselines3 · JAX / Brax |
+| **Control & perception** | ROS 2 · ros2_control · TF2 · OpenCV · RGB-D |
+| **Simulation** | Isaac Sim / Gym · MuJoCo / MJX · Gazebo |
+| **Hardware** | Jetson · Raspberry Pi · Arduino · Dynamixel · CAN / UWB |
