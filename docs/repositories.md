@@ -55,4 +55,4 @@ All **31 public repositories** listed on [KweonTJ's GitHub](https://github.com/K
 
 ## Project images
 
-The profile uses the Dual Arm model preview and the ORV 4WD MuJoCo simulation image from their project repositories. Both images are copied without alteration. [Original images and source revisions](../assets/projects/README.md).
+The Dual Arm model preview and the ORV 4WD MuJoCo simulation image are available in the [project-image archive](../assets/projects/README.md), with original images and source revisions. Both are copied without alteration.
