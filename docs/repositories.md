@@ -53,6 +53,6 @@ All **31 public repositories** listed on [KweonTJ's GitHub](https://github.com/K
 - **[Go2 Isaac Sim](https://github.com/KweonTJ/Go2_IsaacSim)** — Empty at review time: no HEAD commit or source tree. No implementation or results are attributed to it.
 - **[KweonTJ](https://github.com/KweonTJ/KweonTJ)** — This GitHub profile, visual assets, and repository index.
 
-## Visual asset
+## Project images
 
-The profile banner is AI-generated conceptual artwork illustrating the repository themes: legged locomotion, manipulation, wheeled robots, and 3D perception. It is not a project screenshot or a photograph of a hardware experiment.
+The profile uses the Dual Arm model preview and the ORV 4WD MuJoCo simulation image from their project repositories. Both images are copied without alteration. [Original images and source revisions](../assets/projects/README.md).
