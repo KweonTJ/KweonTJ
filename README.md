@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/research-strip.svg" width="720" alt="Research themes: control, learning, and perception" />
+
 <h1>Kwon Taek Ju</h1>
 
 <p><b>Robotics Engineer</b></p>
@@ -20,10 +22,14 @@
 
 ## 🔬 Selected Projects
 
-- **[Go2 Locomotion](https://github.com/KweonTJ/HIMLoco_Horizontal)** — Reinforcement learning for uneven terrain, body stability, and path tracking in Isaac Gym.
-- **[OMX Learning](https://github.com/KweonTJ/omx_train_ws) · [Robot Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot)** — PPO residual control for pick-and-place, from MuJoCo training to ROS 2 integration.
-- **[3D Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)** — RGB-D localization, manipulation, and TurtleBot3 leader–follower transport.
-- **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)** — Jetson-based SLAM, person detection, and rescue mapping with UWB communication.
+- **[Go2 Locomotion](https://github.com/KweonTJ/HIMLoco_Horizontal)** <img src="./assets/badges/locomotion.svg" alt="Locomotion" />
+  <br>Reinforcement learning for uneven terrain, body stability, and path tracking in Isaac Gym.
+- **[OMX Learning](https://github.com/KweonTJ/omx_train_ws) · [Robot Runtime](https://github.com/KweonTJ/Omx_Turtle_Bot)** <img src="./assets/badges/manipulation.svg" alt="Manipulation" />
+  <br>PPO residual control for pick-and-place, from MuJoCo training to ROS 2 integration.
+- **[3D Mobile Manipulation](https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System)** <img src="./assets/badges/perception.svg" alt="Perception" />
+  <br>RGB-D localization, manipulation, and TurtleBot3 leader–follower transport.
+- **[AI Rescue Box](https://github.com/KweonTJ/AI_Rescue_Box)** <img src="./assets/badges/edge-ai.svg" alt="Edge AI" />
+  <br>Jetson-based SLAM, person detection, and rescue mapping with UWB communication.
 
 <sub>More work: <a href="https://github.com/KweonTJ/Dual_Arm">Dual Arm</a> · <a href="https://github.com/KweonTJ/ORV_4WD">ORV 4WD</a> · <a href="https://github.com/KweonTJ/MORAI_Simulation">MORAI Driving</a> · <a href="./docs/repositories.md">Full project index →</a></sub>
 

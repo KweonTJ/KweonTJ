@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="112" viewBox="0 0 720 112" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Control · Learning · Perception</title>
+  <desc id="desc">Three connected research themes, illustrated with blue motion paths, an amber learning network, and teal perception points.</desc>
+  <rect width="720" height="112" rx="14" fill="#111827"/>
+  <path d="M240 24V88M480 24V88" stroke="#334155"/>
+  <g stroke="#60A5FA" stroke-width="2" stroke-linecap="round">
+    <path d="M29 80C51 80 49 36 72 36S95 80 119 80S142 36 163 36" opacity=".3"/>
+    <path d="M29 70C51 70 51 44 73 44S95 70 118 70S141 44 163 44"/>
+  </g>
+  <circle cx="118" cy="70" r="4" fill="#93C5FD"/>
+  <text x="120" y="29" fill="#BFDBFE" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">CONTROL</text>
+  <g stroke="#F59E0B" stroke-width="1.5" opacity=".55">
+    <path d="M274 58L311 43L349 57L311 81L274 58L349 57M311 43L311 81M349 57L384 44L422 64L383 82L349 57M384 44L383 82M349 57L422 64"/>
+  </g>
+  <g fill="#FBBF24">
+    <circle cx="274" cy="58" r="3"/><circle cx="311" cy="43" r="3"/>
+    <circle cx="311" cy="81" r="3"/><circle cx="349" cy="57" r="5"/>
+    <circle cx="384" cy="44" r="3"/><circle cx="422" cy="64" r="3"/>
+    <circle cx="383" cy="82" r="3"/>
+  </g>
+  <text x="360" y="29" fill="#FDE68A" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">LEARNING</text>
+  <g stroke="#2DD4BF" stroke-width="1.5">
+    <path d="M545 58L578 41L624 53L591 74Z" opacity=".75"/>
+    <path d="M545 58V76L591 91L624 71V53M591 74V91" opacity=".35"/>
+  </g>
+  <g fill="#5EEAD4">
+    <circle cx="522" cy="66" r="2" opacity=".35"/><circle cx="535" cy="46" r="2" opacity=".5"/>
+    <circle cx="545" cy="58" r="3"/><circle cx="556" cy="42" r="2"/>
+    <circle cx="566" cy="66" r="2"/><circle cx="578" cy="41" r="3"/>
+    <circle cx="586" cy="58" r="2"/><circle cx="591" cy="74" r="3"/>
+    <circle cx="608" cy="42" r="2"/><circle cx="611" cy="70" r="2"/>
+    <circle cx="624" cy="53" r="3"/><circle cx="638" cy="72" r="2" opacity=".6"/>
+    <circle cx="650" cy="48" r="2" opacity=".4"/><circle cx="661" cy="65" r="2" opacity=".3"/>
+  </g>
+  <text x="600" y="29" fill="#99F6E4" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">PERCEPTION</text>
+</svg>
