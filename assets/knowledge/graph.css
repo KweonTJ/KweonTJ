@@ -1406,13 +1406,8 @@ a.map-origin:hover small {
 .node-topic .node-halo {
   opacity: 0.065;
 }
-.has-orbits .graph-edge,
-.has-orbits .graph-edge.is-active {
-  stroke-opacity: 0.13;
-  stroke: var(--system-color);
-}
-.has-orbits[data-highlight-kind="project"] .graph-edge.is-active {
-  stroke-opacity: 0.6;
+.graph-edges {
+  display: none;
 }
 .graph-legend i:first-child {
   background: var(--system-color, var(--accent));

@@ -14,7 +14,7 @@ Each record has a stable `id`, original GitHub `repo` name, display name, `topic
 
 ## Interaction
 
-- Six topic planets open a colored project system: projects orbit the selected topic, with upright labels, faint shared-topic connections and a complete list of repository backlinks. The two twin planets are ordinary links that open their respective viewer/guide in a new tab.
+- Six topic planets open a colored project system: projects orbit the selected topic, with upright labels, decorative orbital rings and a complete list of repository backlinks. Straight relationship lines stay hidden in every dialog view, including hover and project selection; shared-topic relationships remain available in notes and backlinks. The two twin planets are ordinary links that open their respective viewer/guide in a new tab.
 - Project nodes and list entries open an internal note with a real GitHub destination, related topics and other work sharing those topics.
 - Topic chips change the graph. Highlights/all-work controls and case-insensitive search filter its repositories. Search is restricted to the current topic until All topics is chosen.
 - Hover or graph-node focus pauses project orbits for selection. The dialog has its own Pause/Resume orbits button. Dragging pauses the orbit until explicitly resumed; nodes can be arranged and the background pans. Buttons and Ctrl/Cmd + wheel zoom. Reset restores the initial layout and responsive zoom.
@@ -49,3 +49,5 @@ Verified on 2026-10-16 (KST): **17 Node tests passed**, including full-turn proj
 Project motion was checked for actual position changes, hover/focus freezing, explicit Pause/Resume, global Motion, reduced motion and stopping after dialog close. Shared world headers were checked for local Pause/Resume, reduced motion, offscreen suspension and return-to-map navigation. The new checks concern layout and interaction, not physical simulation or hardware operation.
 
 The compact main atlas was separately verified with **186 browser assertions** at 320, 360, 390, 430, 700, 768 and 1440 px: circular compact rings, numbered worlds, eight readable directory entries, all six topic dialogs and focus restoration, both actual touch-opened twin tabs, the exact profile-sun target, and no horizontal page overflow. Desktop keeps its wide orbital composition.
+
+Straight dialog connection lines were removed on 2026-10-16 (KST). **82 targeted browser assertions passed** at 1440 and 390 px across all six topics: project positions still advance, four decorative orbit rings remain, relationship lines stay hidden during hover/selection and in All topics, repository notes remain navigable, and the dialogs have no horizontal overflow. No page/resource errors were recorded.
