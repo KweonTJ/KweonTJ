@@ -2,7 +2,7 @@
 
 [← Back to profile](../README.md)
 
-All **31 public repositories** listed on [KweonTJ's GitHub](https://github.com/KweonTJ?tab=repositories), reviewed on **2026-10-11 (KST)**. Summaries use repository READMEs, file trees, and representative source files where documentation is missing. This is a project index, not a claim that every project has been built or validated on hardware. Private repositories are outside this public inventory.
+All **35 public repositories** listed on [KweonTJ's GitHub](https://github.com/KweonTJ?tab=repositories), with the public inventory refreshed on **2026-10-16 (KST)**. Original summaries were reviewed on October 11; new and renamed repositories were checked on October 16. Summaries use repository READMEs, file trees, and representative source files where documentation is missing. This is a project index, not a claim that every project has been built or validated on hardware. Private repositories are outside this public inventory.
 
 ## Legged locomotion & navigation
 
@@ -39,13 +39,18 @@ All **31 public repositories** listed on [KweonTJ's GitHub](https://github.com/K
 
 - **[Deep Learning](https://github.com/KweonTJ/Deep_Learning)** — Weekly Python/NumPy notebooks and assignments covering perceptrons, arrays, image processing, and MNIST neural-network classification.
 - **[Reinforcement Learning](https://github.com/KweonTJ/Reinforcement_Learning)** — Bandits, non-stationary decisions, Markov decision processes, and grid-world dynamic programming. Includes policy evaluation, policy iteration, and value-iteration notebooks.
-- **[Artificial Intelligence: ML & NN](https://github.com/KweonTJ/Artifical_Intelligence-ML-NN-)** — Coursework notebooks on preprocessing, PCA, regression, classification, clustering, backpropagation, MLPs, and regularization.
+- **[Artificial Intelligence: ML & NN](https://github.com/KweonTJ/Artifical_Intelligence)** — Coursework notebooks on preprocessing, PCA, regression, classification, clustering, backpropagation, MLPs, and regularization.
 - **[Machine Learning](https://github.com/KweonTJ/Machine_Learning)** — Notebooks covering decision trees, SVMs, MLPs, CNNs, RNNs, clustering, PCA, and autoencoders. Representative autoencoder code uses TensorFlow/Keras.
 - **[Robot Programming](https://github.com/KweonTJ/Robot_Programming)** — ROS 2 labs and projects covering publishers/subscribers, services, TCP/UDP, simulated robots, and camera-based line following, with Docker support files.
 - **[Digital Video Processing](https://github.com/KweonTJ/Digital_Video_Processing)** — Python/OpenCV exercises in histograms, filtering, geometric transforms, DFT, Canny edges, Harris corners, Hough transforms, and coin detection.
 - **[Data Structures & Algorithms](https://github.com/KweonTJ/Data_Structure_and_Algorithm)** — C/C++ implementations covering stacks, linked structures, sorting, graph traversal, LCS, and path planning with A*, Dijkstra, and RRT.
 - **[Microprocess](https://github.com/KweonTJ/Microprocess)** — Embedded/Linux exercises in GPIO, interrupts, timers, PWM motor control, UART, I²C, ultrasonic sensing, and camera/QR processing.
 - **[Autonomous Driving PG](https://github.com/KweonTJ/Autonomous_driving_PG_application)** — Driving-course assignments and MORAI-related materials, including sensor recordings, image labeling, and a ROS Pure Pursuit controller.
+
+- **[OCR Text Recognition](https://github.com/KweonTJ/opensw-project.2)** — C/C++ OpenCV/Tesseract Korean and English OCR with linked-list management of results/files. The README and `opensw.c` were checked; legacy OpenCV APIs may require updates.
+- **[Creative Engineering Design](https://github.com/KweonTJ/Creative-Engineering-Design)** — Arduino coursework with a team pet-play robot, obstacle avoidance, servo launcher, joystick/serial coordination, and individual sensor/motor labs. The UTF-16 README and repository tree were checked. Some sketches are intermediate versions.
+- **[Pose Estimation](https://github.com/KweonTJ/OpenSWProject)** — Upper-body posture estimation and warnings using keypoint angles and a pretrained classifier; includes Python source, notebooks and sample model/data. The default branch is `master`.
+- **[Posture Monitoring](https://github.com/KweonTJ/opensw-project)** — Related PoseProject source with shoulder-angle/posture monitoring and warning logic. Listed separately to preserve its repository identity; these two repositories do not establish two independent validated outcomes.
 
 ## Fork, empty repository & profile
 
@@ -56,3 +61,7 @@ All **31 public repositories** listed on [KweonTJ's GitHub](https://github.com/K
 ## Project images
 
 The Dual Arm model preview and the ORV 4WD MuJoCo simulation image are available in the [project-image archive](../assets/projects/README.md), with original images and source revisions. Both are copied without alteration.
+
+## Connected project map
+
+The [portfolio Work section](https://kweontj.github.io/KweonTJ/#work) shows six topic categories. Each opens an internal project explorer with a graph and repository notes. 32 repositories are mapped; this profile, the empty Go2 repository and the upstream hardware fork remain in this index. Connections describe shared topics, not code dependencies. See [map maintenance and verification](knowledge-map.md).

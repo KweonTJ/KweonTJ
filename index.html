@@ -31,7 +31,9 @@
       crossorigin
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./assets/knowledge/graph.css" />
     <script src="./script.js" defer></script>
+    <script type="module" src="./assets/knowledge/graph.mjs"></script>
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to selected work</a>
@@ -41,7 +43,7 @@
       >
       <nav aria-label="Main navigation">
         <a href="./lab/" target="_blank" rel="noopener noreferrer">Lab ↗</a>
-        <a href="#work">Work <span>05</span></a
+        <a href="#work">Work <span>06</span></a
         ><a href="#toolkit">Toolkit</a
         ><a href="#contact"
           >Contact
@@ -157,243 +159,291 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">01 / SELECTED WORK</p>
+              <p class="eyebrow">01 / KNOWLEDGE MAP</p>
               <h2 id="work-title">
-                Different systems.<br /><em>One curiosity.</em>
+                Connected ideas.<br /><em>Working systems.</em>
               </h2>
             </div>
             <p class="section-intro">
-              Five projects across robot learning, perception, and control. Pick
-              a project to explore its orbit.
+              Explore the themes behind my work. Choose a category to open its
+              connected projects without leaving this page.
             </p>
           </div>
-          <div class="project-explorer">
-            <div
-              class="project-navigation"
-              role="tablist"
-              aria-label="Selected robotics projects"
-              aria-orientation="vertical"
-            >
-              <button
-                class="project-tab is-active"
-                id="tab-go2"
-                role="tab"
-                aria-selected="true"
-                aria-controls="project-panel"
-                data-project="go2"
-                tabindex="0"
+          <div class="category-map" aria-label="Research topic map">
+            <div class="category-map-top">
+              <span>KTJ / KNOWLEDGE GRAPH</span
+              ><span id="category-summary">06 TOPICS / 32 REPOSITORIES</span>
+            </div>
+            <div class="category-stage" id="category-stage">
+              <svg
+                class="category-edges"
+                viewBox="0 0 1000 500"
+                preserveAspectRatio="none"
+                aria-hidden="true"
               >
-                <span class="project-index">01</span
-                ><span
-                  ><strong>Go2 Locomotion</strong
-                  ><small>Legged robot learning</small></span
-                ><span class="project-indicator" aria-hidden="true"
-                  ><svg
-                    class="icon-arrow"
-                    viewBox="0 0 12 12"
-                    width="12"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 10 10 2M2 2h8v8" /></svg
-                ></span>
+                <defs>
+                  <radialGradient id="map-glow">
+                    <stop stop-color="#e9a383" stop-opacity=".08" />
+                    <stop offset="1" stop-color="#e9a383" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <ellipse
+                  cx="500"
+                  cy="250"
+                  rx="350"
+                  ry="240"
+                  fill="url(#map-glow)"
+                />
+                <path
+                  data-category-edge="learning"
+                  d="M500 250 Q335 240 230 90"
+                />
+                <path
+                  data-category-edge="perception"
+                  d="M500 250 Q600 185 580 60"
+                />
+                <path
+                  data-category-edge="autonomy"
+                  d="M500 250 Q690 190 860 175"
+                />
+                <path
+                  data-category-edge="systems"
+                  d="M500 250 Q605 375 770 395"
+                />
+                <path
+                  data-category-edge="simulation"
+                  d="M500 250 Q385 310 400 440"
+                />
+                <path
+                  data-category-edge="foundations"
+                  d="M500 250 Q290 235 120 320"
+                />
+              </svg>
+              <div class="map-origin">
+                <span class="origin-dot" aria-hidden="true"></span
+                ><span>ROBOTICS</span><small>LEARN · PERCEIVE · BUILD</small>
+              </div>
+              <button
+                class="category-node category-learning"
+                type="button"
+                data-open-topic="learning"
+                style="--node-color: #e9a383"
+              >
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>Robot learning</strong
+                ><small>Policies &amp; behavior</small
+                ><span class="category-count">Explore projects ↗</span>
               </button>
               <button
-                class="project-tab"
-                id="tab-omx"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-panel"
-                data-project="omx"
-                tabindex="-1"
+                class="category-node category-perception"
+                type="button"
+                data-open-topic="perception"
+                style="--node-color: #88c8bd"
               >
-                <span class="project-index">02</span
-                ><span
-                  ><strong>OMX Learning</strong
-                  ><small>Residual control</small></span
-                ><span class="project-indicator" aria-hidden="true"
-                  ><svg
-                    class="icon-arrow"
-                    viewBox="0 0 12 12"
-                    width="12"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 10 10 2M2 2h8v8" /></svg
-                ></span>
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>Perception</strong><small>Vision &amp; mapping</small
+                ><span class="category-count">Explore projects ↗</span>
               </button>
               <button
-                class="project-tab"
-                id="tab-perception"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-panel"
-                data-project="perception"
-                tabindex="-1"
+                class="category-node category-autonomy"
+                type="button"
+                data-open-topic="autonomy"
+                style="--node-color: #b4a4db"
               >
-                <span class="project-index">03</span
-                ><span
-                  ><strong>3D Mobile Manipulation</strong
-                  ><small>Perception & coordination</small></span
-                ><span class="project-indicator" aria-hidden="true"
-                  ><svg
-                    class="icon-arrow"
-                    viewBox="0 0 12 12"
-                    width="12"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 10 10 2M2 2h8v8" /></svg
-                ></span>
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>Autonomy</strong
+                ><small>Navigation &amp; coordination</small
+                ><span class="category-count">Explore projects ↗</span>
               </button>
               <button
-                class="project-tab"
-                id="tab-rescue"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-panel"
-                data-project="rescue"
-                tabindex="-1"
+                class="category-node category-systems"
+                type="button"
+                data-open-topic="systems"
+                style="--node-color: #89b7de"
               >
-                <span class="project-index">04</span
-                ><span
-                  ><strong>AI Rescue Box</strong
-                  ><small>Edge perception & mapping</small></span
-                ><span class="project-indicator" aria-hidden="true"
-                  ><svg
-                    class="icon-arrow"
-                    viewBox="0 0 12 12"
-                    width="12"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 10 10 2M2 2h8v8" /></svg
-                ></span>
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>Robot systems</strong
+                ><small>Control &amp; integration</small
+                ><span class="category-count">Explore projects ↗</span>
               </button>
               <button
-                class="project-tab"
-                id="tab-orv"
-                role="tab"
-                aria-selected="false"
-                aria-controls="project-panel"
-                data-project="orv"
-                tabindex="-1"
+                class="category-node category-simulation"
+                type="button"
+                data-open-topic="simulation"
+                style="--node-color: #dcc58b"
               >
-                <span class="project-index">05</span
-                ><span
-                  ><strong>ORV 4WD</strong
-                  ><small>Robot systems integration</small></span
-                ><span class="project-indicator" aria-hidden="true"
-                  ><svg
-                    class="icon-arrow"
-                    viewBox="0 0 12 12"
-                    width="12"
-                    height="12"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 10 10 2M2 2h8v8" /></svg
-                ></span>
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>Simulation &amp; twins</strong
+                ><small>Models &amp; environments</small
+                ><span class="category-count">Explore projects ↗</span>
+              </button>
+              <button
+                class="category-node category-foundations"
+                type="button"
+                data-open-topic="foundations"
+                style="--node-color: #aeb8c9"
+              >
+                <span class="category-dot" aria-hidden="true"></span
+                ><strong>ML &amp; foundations</strong
+                ><small>Algorithms &amp; experiments</small
+                ><span class="category-count">Explore projects ↗</span>
               </button>
             </div>
-            <article
-              class="project-panel"
-              id="project-panel"
-              role="tabpanel"
-              aria-labelledby="tab-go2"
-              tabindex="0"
-            >
-              <div class="project-art" aria-hidden="true">
-                <div class="orbital-ring ring-one"></div>
-                <div class="orbital-ring ring-two"></div>
-                <div class="project-planet"></div>
-                <span class="orbit-dot"></span
-                ><span class="orbit-coordinate"
-                  >PROJECT ORBIT / <span id="orbit-number">01</span></span
-                >
-              </div>
-              <img
-                class="project-preview"
-                id="project-preview"
-                src="./assets/projects/orv-4wd.png"
-                alt="ORV 4WD model in MuJoCo simulation"
-                width="1600"
-                height="1000"
-                hidden
-              />
-              <div class="project-copy">
-                <p class="eyebrow" id="project-category">
-                  LOCOMOTION / SIMULATION STUDY
-                </p>
-                <h3 id="project-title">Learning to find<br />stable ground.</h3>
-                <p id="project-description">
-                  Reinforcement learning for Unitree Go2 locomotion on uneven
-                  terrain, with body-stability and path-tracking evaluation in
-                  Isaac Gym.
-                </p>
-                <ul
-                  class="project-stack"
-                  id="project-stack"
-                  aria-label="Project technologies"
-                >
-                  <li>Isaac Gym</li>
-                  <li>PyTorch</li>
-                  <li>Reinforcement learning</li>
-                </ul>
-                <div class="project-links" id="project-links">
-                  <a
-                    class="text-link"
-                    href="https://github.com/KweonTJ/HIMLoco_Horizontal"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >View repository
-                    <span aria-hidden="true"
-                      ><svg
-                        class="icon-arrow"
-                        viewBox="0 0 12 12"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.2"
-                        aria-hidden="true"
-                      >
-                        <path d="M2 10 10 2M2 2h8v8" /></svg></span
-                  ></a>
-                </div>
-              </div>
-            </article>
+            <p class="category-hint">
+              <span class="hint-dot" aria-hidden="true"></span>Choose a topic.
+              Follow its projects.<span>CLICK TO EXPLORE ↗</span>
+            </p>
           </div>
           <noscript
-            ><p>
-              JavaScript is off. Explore the other projects:
-              <a href="https://github.com/KweonTJ/omx_train_ws">OMX Learning</a>
-              ·
+            ><p class="map-noscript">
+              The interactive map needs JavaScript.
               <a
-                href="https://github.com/KweonTJ/3D_pereception_Based_Mobile_Manipulator-Autonomous_Navigation_System"
-                >3D Mobile Manipulation</a
+                href="https://github.com/KweonTJ/KweonTJ/blob/main/docs/repositories.md"
+                >Browse the repository index ↗</a
               >
-              ·
-              <a href="https://github.com/KweonTJ/AI_Rescue_Box"
-                >AI Rescue Box</a
-              >
-              · <a href="https://github.com/KweonTJ/ORV_4WD">ORV 4WD</a>.
             </p></noscript
           >
+          <dialog
+            id="project-dialog"
+            class="project-dialog"
+            aria-labelledby="dialog-title"
+            aria-describedby="dialog-help"
+          >
+            <header class="dialog-header">
+              <div>
+                <p class="eyebrow">KNOWLEDGE MAP / PROJECT EXPLORER</p>
+                <h2 id="dialog-title">Connected projects</h2>
+              </div>
+              <button
+                id="dialog-close"
+                class="dialog-close"
+                type="button"
+                aria-label="Close project explorer"
+                autofocus
+              >
+                ×
+              </button>
+            </header>
+            <p id="dialog-help" class="dialog-help">
+              Select a project node to read its note. Lines connect shared
+              themes.
+            </p>
+            <div
+              class="graph-filters"
+              id="graph-topics"
+              role="group"
+              aria-label="Filter by topic"
+            >
+              <button
+                id="graph-all-topics"
+                class="topic-filter"
+                type="button"
+                data-graph-topic=""
+                aria-pressed="false"
+              >
+                All topics
+              </button>
+            </div>
+            <div class="graph-toolbar">
+              <div
+                class="graph-scopes"
+                role="group"
+                aria-label="Repository scope"
+              >
+                <button
+                  type="button"
+                  data-graph-scope="featured"
+                  aria-pressed="false"
+                >
+                  Highlights</button
+                ><button
+                  type="button"
+                  data-graph-scope="all"
+                  aria-pressed="true"
+                >
+                  All work <span>32</span>
+                </button>
+              </div>
+              <label class="graph-search-label"
+                ><span class="sr-only">Search repositories</span
+                ><input
+                  id="graph-search"
+                  type="search"
+                  placeholder="Find a project…"
+                  autocomplete="off"
+              /></label>
+            </div>
+            <div class="knowledge-shell">
+              <div class="graph-workspace">
+                <div class="graph-status">
+                  <span id="graph-count">32 repositories</span
+                  ><span class="graph-legend"
+                    ><i></i> Topic <i></i> Project</span
+                  >
+                </div>
+                <div class="graph-stage">
+                  <svg
+                    id="knowledge-graph"
+                    class="knowledge-graph"
+                    role="group"
+                    aria-label="Connected project graph. Use arrow keys to move between nodes; Enter to select. Drag nodes to rearrange, drag the background to pan."
+                    hidden
+                  >
+                    <g id="graph-viewport"></g>
+                  </svg>
+                  <p id="graph-fallback" class="graph-fallback">
+                    Preparing connected projects…
+                  </p>
+                  <p id="graph-empty" class="graph-empty" hidden>
+                    No projects match this search. Try another term or topic.
+                  </p>
+                  <p id="graph-mobile-hint" class="graph-mobile-hint" hidden>
+                    Choose a topic to unfold its projects.
+                  </p>
+                </div>
+                <div class="graph-bottom">
+                  <span>Drag to arrange · Ctrl + scroll to zoom</span>
+                  <div
+                    class="graph-view-controls"
+                    role="group"
+                    aria-label="Graph view"
+                  >
+                    <button
+                      id="graph-zoom-out"
+                      type="button"
+                      aria-label="Zoom out"
+                    >
+                      −</button
+                    ><button
+                      id="graph-zoom-in"
+                      type="button"
+                      aria-label="Zoom in"
+                    >
+                      +</button
+                    ><button id="graph-reset" type="button">Reset view</button>
+                  </div>
+                </div>
+              </div>
+              <aside
+                class="graph-detail"
+                id="graph-detail"
+                aria-labelledby="graph-detail-title"
+              >
+                <h3 id="graph-detail-title">Connected work</h3>
+              </aside>
+            </div>
+            <div class="dialog-footer">
+              <span id="graph-selection">All topics</span
+              ><span>ESC TO CLOSE</span>
+            </div>
+            <p
+              class="sr-only"
+              id="graph-announcement"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </dialog>
           <a
             class="lab-callout"
             href="./lab/"
