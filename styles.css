@@ -1,5 +1,11 @@
 @font-face {
   font-family: Manrope;
+  src: url("./assets/fonts/manrope-light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: Manrope;
   src: url("./assets/fonts/manrope-regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
@@ -166,6 +172,7 @@ em {
 }
 .site-header nav {
   display: flex;
+  align-items: center;
   gap: 32px;
   font-size: 11px;
 }

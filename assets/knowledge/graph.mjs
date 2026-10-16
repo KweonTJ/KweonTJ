@@ -2,6 +2,8 @@ import { repositories, topics, inventory } from "./data.mjs";
 import { filterRepositories, labelLines, makeGraph } from "./model.mjs";
 import { createSolarSystem } from "./solar.mjs";
 import { createProjectOrbits } from "./project-orbits.mjs";
+import { buildProjectVisit, createVisitMotion } from "./project-visit.mjs";
+import { containDialogFocus } from "./dialog-focus.mjs";
 const $ = (id) => document.getElementById(id);
 const svg = $("knowledge-graph"),
   viewport = $("graph-viewport"),
@@ -9,6 +11,8 @@ const svg = $("knowledge-graph"),
 const NS = "http://www.w3.org/2000/svg";
 const compact = matchMedia("(max-width: 900px)");
 const dialog = $("project-dialog");
+containDialogFocus(dialog);
+const visitMotion = createVisitMotion(dialog);
 let opener;
 const state = {
   scope: "all",
@@ -95,18 +99,32 @@ function updateInspector() {
   inspector.replaceChildren();
   const r = repositories.find((r) => r.id === state.selected),
     t = topicById(state.selected);
-  const eyebrow = el(
-    "p",
-    "eyebrow",
-    r ? "PROJECT NOTE" : t ? "TOPIC NOTE" : "CONNECTED WORK",
-  );
-  const title = el(
-    "h3",
-    "",
-    r ? r.name : t ? t.label : "Follow the connections.",
-  );
+  dialog.dataset.view = r ? "project" : "system";
+  $("project-back").hidden = !r;
+  visitMotion.clear();
+  if (r) {
+    const color = topicById(r.topics[0]).color;
+    inspector.style.setProperty("--detail-color", color);
+    const peers = filterRepositories({ scope: "all", topic: state.topic });
+    const view = buildProjectVisit({
+      repo: r,
+      peers,
+      topics,
+      onSelect: selectProject,
+      topicButton,
+      projectButton,
+      external,
+    });
+    inspector.append(view.element);
+    view.revealCurrent();
+    visitMotion.watch(view.hero, view.motion);
+    $("graph-selection").textContent = r.name;
+    return;
+  }
+  const eyebrow = el("p", "eyebrow", t ? "TOPIC NOTE" : "CONNECTED WORK");
+  const title = el("h3", "", t ? t.label : "Follow the connections.");
   title.id = "graph-detail-title";
-  const color = r ? topicById(r.topics[0]).color : t ? t.color : "#e9a383";
+  const color = t ? t.color : "#e9a383";
   inspector.style.setProperty("--detail-color", color);
   const planet = el("div", "detail-planet");
   planet.setAttribute("aria-hidden", "true");
@@ -115,49 +133,7 @@ function updateInspector() {
     el("span", "detail-planet-ring"),
   );
   inspector.append(eyebrow, planet, title);
-  if (r) {
-    inspector.append(el("p", "detail-kind", r.kind));
-    if (r.image) {
-      const img = el("img", "detail-preview");
-      img.src = r.image;
-      img.alt = r.name + " model preview";
-      img.width = 640;
-      img.height = 400;
-      img.loading = "lazy";
-      inspector.append(img);
-    }
-    inspector.append(el("p", "detail-description", r.description));
-    const stack = el("ul", "detail-stack");
-    for (const name of r.stack) stack.append(el("li", "", name));
-    inspector.append(stack);
-    const links = el("div", "detail-links");
-    links.append(
-      external("View repository", "https://github.com/KweonTJ/" + r.repo),
-    );
-    if (r.lab)
-      links.append(
-        external(
-          r.id === "omx-training" ? "MuJoCo scenes" : "Open shelf twin",
-          r.lab,
-        ),
-      );
-    inspector.append(links);
-    const tags = el("div", "detail-topics");
-    for (const id of r.topics) tags.append(topicButton(topicById(id)));
-    inspector.append(el("h4", "detail-heading", "CONNECTED TOPICS"), tags);
-    const related = repositories
-      .filter(
-        (p) => p.id !== r.id && p.topics.some((id) => r.topics.includes(id)),
-      )
-      .sort((a, b) => Number(!!b.featured) - Number(!!a.featured))
-      .slice(0, 4);
-    const list = el("div", "backlinks");
-    for (const p of related) list.append(projectButton(p));
-    inspector.append(
-      el("h4", "detail-heading", "SHARED TOPICS / RELATED WORK"),
-      list,
-    );
-  } else if (t) {
+  if (t) {
     inspector.append(el("p", "detail-description", t.description));
     const keywords = el("ul", "detail-stack");
     for (const name of t.keywords) keywords.append(el("li", "", name));
@@ -208,7 +184,7 @@ function updateInspector() {
     );
   }
   inspector.scrollTop = 0;
-  $("graph-selection").textContent = r ? r.name : t ? t.label : "All topics";
+  $("graph-selection").textContent = t ? t.label : "All topics";
 }
 function updateHighlight() {
   const id = hovered || state.selected;
@@ -239,6 +215,7 @@ function updateHighlight() {
   }
 }
 function focusNode(id) {
+  if (dialog.dataset.view === "project") return;
   for (const [key, g] of elements) g.tabIndex = key === id ? 0 : -1;
   elements.get(id)?.focus({ preventScroll: true });
 }
@@ -466,8 +443,7 @@ function selectTopic(id) {
   if (id && !repositories.some((r) => r.featured && r.topics.includes(id)))
     state.scope = "all";
   render();
-  if (compact.matches && dialog.open)
-    dialog.scrollTo({ top: 0, behavior: "instant" });
+  if (dialog.open) dialog.scrollTo({ top: 0, behavior: "instant" });
   announce(
     (id ? topicById(id).label : "All topics") +
       ": " +
@@ -475,7 +451,7 @@ function selectTopic(id) {
       " repositories",
   );
 }
-function selectProject(id) {
+function selectProject(id, focusId = "project-back") {
   const r = repositories.find((r) => r.id === id);
   if (!r) return;
   state.selected = id;
@@ -492,14 +468,20 @@ function selectProject(id) {
     updateInspector();
   }
   announce(r.name + ". Details updated.");
-  if (compact.matches)
-    inspector.scrollIntoView({
-      block: "start",
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+  dialog.scrollTo({ top: 0, behavior: "instant" });
+  ($(focusId) || $("project-back"))?.focus({ preventScroll: true });
 }
+$("project-back").addEventListener("click", () => {
+  const id = state.selected;
+  state.selected = state.topic || "root";
+  hovered = "";
+  updateHighlight();
+  updateInspector();
+  graphWidth = svg.clientWidth;
+  dialog.scrollTo({ top: 0, behavior: "instant" });
+  focusNode(id);
+  announce("Back to " + (topicById(state.topic)?.label || "all topics"));
+});
 function activate(id) {
   if (id === "root") {
     state.query = "";

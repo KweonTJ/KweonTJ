@@ -27,6 +27,7 @@ export function createProjectOrbits({ svg, dialog, button, onFrame }) {
     !!graph &&
     moving.length > 0 &&
     dialog.open &&
+    dialog.dataset.view !== "project" &&
     visible &&
     !document.hidden &&
     !reduced.matches &&
@@ -153,7 +154,10 @@ export function createProjectOrbits({ svg, dialog, button, onFrame }) {
   reduced.addEventListener("change", sync);
   document.addEventListener("visibilitychange", sync);
   const observer = new MutationObserver(sync);
-  observer.observe(dialog, { attributes: true, attributeFilter: ["open"] });
+  observer.observe(dialog, {
+    attributes: true,
+    attributeFilter: ["open", "data-view"],
+  });
   observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ["data-motion"],

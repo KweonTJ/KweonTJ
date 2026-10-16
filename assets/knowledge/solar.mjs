@@ -56,6 +56,7 @@ export function createSolarSystem() {
   const toggle = document.getElementById("orbit-toggle");
   const status = document.getElementById("orbit-status");
   const dialog = document.getElementById("project-dialog");
+  const introduction = document.getElementById("intro-dialog");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const buttons = [...stage.querySelectorAll(".category-node")];
   const directory = document.createElement("div");
@@ -229,7 +230,8 @@ export function createSolarSystem() {
       !hovering &&
       !focused &&
       !touching &&
-      !dialog.open;
+      !dialog.open &&
+      !introduction?.open;
     stage.dataset.orbitState = running
       ? "running"
       : reduced.matches
@@ -312,6 +314,11 @@ export function createSolarSystem() {
     attributeFilter: ["data-motion"],
   });
   observer.observe(dialog, { attributes: true, attributeFilter: ["open"] });
+  if (introduction)
+    observer.observe(introduction, {
+      attributes: true,
+      attributeFilter: ["open"],
+    });
   new IntersectionObserver(
     ([entry]) => {
       visible = entry.isIntersecting;
