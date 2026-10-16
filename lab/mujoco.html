@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#090f1b" />
+    <meta
+      name="description"
+      content="OMX MuJoCo의 선반 표시 장면과 기존 배송 물리 장면을 PC에서 실행하는 방법."
+    />
+    <title>OMX MuJoCo — Digital Twin Lab</title>
+    <link
+      rel="icon"
+      href="../assets/landscape/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../simulator/lab.css" />
+    <link rel="stylesheet" href="./hub.css" />
+  </head>
+  <body class="lab-body">
+    <header class="lab-header">
+      <a class="wordmark" href="../" aria-label="포트폴리오로 돌아가기"
+        >KTJ<span>.</span></a
+      ><span class="lab-breadcrumb">LAB / OMX MUJOCO</span
+      ><a class="back-link" href="./">← 트윈 선택</a>
+    </header>
+    <main class="hub-main native-main">
+      <div class="hub-intro">
+        <p class="eyebrow">DESKTOP / LOCAL PYTHON</p>
+        <h1>OMX <em>MuJoCo.</em></h1>
+        <p>
+          같은 디자인, 두 가지 장면.<br />PC의 MuJoCo 창에서 관절을 조작하고
+          시뮬레이션을 살펴보세요.
+        </p>
+      </div>
+      <div class="native-scenes">
+        <article>
+          <img
+            src="./assets/native-shelf.webp"
+            width="1200"
+            height="800"
+            alt="MuJoCo에서 렌더링한 최신 트랙형 로봇과 2단 선반"
+          />
+          <div class="scene-copy">
+            <span class="twin-index">01 / KINEMATIC DISPLAY</span>
+            <h2>선반 디지털 트윈</h2>
+            <p>
+              웹과 동일한 원본 로봇·선반·ArUco 4개. 관절과 그리퍼를 직접
+              조작하는 표시 장면입니다. 중력·충돌·PPO 추론은 실행하지 않습니다.
+            </p>
+            <pre><code>python scripts/view_twin.py --scene shelf</code></pre>
+          </div>
+        </article>
+        <article>
+          <img
+            src="./assets/delivery.webp"
+            width="1200"
+            height="800"
+            alt="MuJoCo 기존 배송 타워 장면"
+          />
+          <div class="scene-copy">
+            <span class="twin-index">02 / PHYSICS SANDBOX</span>
+            <h2>기존 배송 시뮬레이션</h2>
+            <p>
+              기존 타워와 상자, 물리·제어 설정을 유지했습니다.
+              색상·조명·그리드·시점을 통일한 수동 물리 샌드박스입니다.
+            </p>
+            <pre><code>python scripts/view_twin.py --scene delivery</code></pre>
+          </div>
+        </article>
+      </div>
+      <section class="launch-guide" aria-labelledby="launch-heading">
+        <div>
+          <p class="eyebrow">QUICK START</p>
+          <h2 id="launch-heading">PC에서 실행하기</h2>
+          <p>
+            Python 3.11 이상과 화면을 표시할 수 있는 PC가 필요합니다. 별도 가상
+            환경에 뷰어에 필요한 패키지만 설치합니다.
+          </p>
+          <p>
+            오른쪽 <strong>Control</strong>에서 관절 목표를 조작합니다.
+            <kbd>R</kbd> 초기화 · 드래그 회전 · 휠 확대.
+          </p>
+        </div>
+        <pre><code>git clone https://github.com/KweonTJ/omx_train_ws.git
+cd omx_train_ws
+python -m venv .venv-twin
+# Linux / macOS
+source .venv-twin/bin/activate
+# Windows: .venv-twin\Scripts\activate
+python -m pip install mujoco numpy
+python scripts/view_twin.py --scene shelf</code></pre>
+      </section>
+      <div class="hub-footer">
+        <p>
+          기존 PPO 재생 뷰어에도 같은 디자인을 적용했습니다. 정책 실행은 저장소
+          안내를 참고하세요.
+        </p>
+        <a
+          href="https://github.com/KweonTJ/omx_train_ws/blob/main/docs/digital-twin.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          >저장소 · 자세한 실행 안내 ↗</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

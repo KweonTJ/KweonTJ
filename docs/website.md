@@ -36,3 +36,7 @@ The homepage and README share five selected projects and `cbnuai@chungbuk.ac.kr`
 ## Interactive shelf page
 
 The homepage opens [Shelf Twin Lab](https://kweontj.github.io/KweonTJ/simulator/) in a new tab. The static deployment includes its local Three.js renderer, original robot meshes, and exported shelf model. See [simulator details](simulator.md) and [ROS 2 bridge setup](../bridge/README.md). ROS bridge processes run on a separate host, not on GitHub Pages.
+
+## Digital Twin Lab
+
+The Lab navigation and homepage callout open `lab/`, a visual selection page for available twins. The browser shelf viewer keeps its `simulator/` URL and direct project link. Desktop MuJoCo has a separate `lab/mujoco.html` preview and launch guide, with its runtime clearly labeled. Pages includes both directories. Native source lives in `KweonTJ/omx_train_ws`; the existing delivery training model remains unchanged.

@@ -9,6 +9,7 @@ on:
       - script.js
       - assets/**
       - simulator/**
+      - lab/**
       - .github/workflows/pages.yml
   workflow_dispatch:
 
@@ -38,6 +39,7 @@ jobs:
           cp index.html styles.css script.js _site/
           cp -R assets _site/assets
           cp -R simulator _site/simulator
+          cp -R lab _site/lab
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

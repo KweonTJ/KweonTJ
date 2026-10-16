@@ -1,8 +1,14 @@
-# Shelf Twin Lab
+# Digital Twin Lab
 
-Public route: https://kweontj.github.io/KweonTJ/simulator/
+Lab selection: https://kweontj.github.io/KweonTJ/lab/
 
-The homepage opens this separate page in a new tab from **Lab**, the dedicated **Step into the simulation** link, or the **OMX Learning** project. The profile README also links to it.
+Shelf viewer (existing route preserved): https://kweontj.github.io/KweonTJ/simulator/
+
+The homepage **Lab** navigation and **Choose your digital twin** callout open the selection page in a new tab. Choose the browser shelf twin or the desktop OMX MuJoCo scenes. Desktop cards link to local launch instructions, not a browser physics runtime. The **OMX Learning** project retains its direct shelf-viewer link. Every viewer links back to the selection page. The profile README also links to the Lab.
+
+`lab/index.html` contains the card collection, `lab/mujoco.html` the desktop scene previews and launch instructions. Their preview images are actual Three.js / MuJoCo renders. To add another available twin, add a card with its preview, runtime label and working route; do not present a planned project as an executable environment. Static Pages deployment includes `lab/`.
+
+Native scene source and verification: https://github.com/KweonTJ/omx_train_ws/blob/main/docs/digital-twin.md
 
 ## What runs in the browser
 

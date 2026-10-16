@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#090f1b" />
+    <meta
+      name="description"
+      content="Kwon Taek Ju의 로보틱스 실험실. 디지털 트윈을 선택하고 로봇과 시뮬레이션을 살펴보세요."
+    />
+    <title>Digital Twin Lab — Kwon Taek Ju</title>
+    <link
+      rel="icon"
+      href="../assets/landscape/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../simulator/lab.css" />
+    <link rel="stylesheet" href="./hub.css" />
+  </head>
+  <body class="lab-body">
+    <header class="lab-header">
+      <a class="wordmark" href="../" aria-label="포트폴리오로 돌아가기"
+        >KTJ<span>.</span></a
+      >
+      <span class="lab-breadcrumb">ROBOTICS / DIGITAL TWINS</span>
+      <a class="back-link" href="../">← 포트폴리오</a>
+    </header>
+    <main class="hub-main">
+      <div class="hub-intro">
+        <p class="eyebrow">EXPLORE / CONTROL / CONNECT</p>
+        <h1>Choose your <em>twin.</em></h1>
+        <p>
+          살펴볼 디지털 트윈을 선택하세요.<br />로봇을 직접 움직이거나, ROS 2
+          상태를 연결할 수 있습니다.
+        </p>
+      </div>
+      <div class="collection-heading">
+        <h2>Digital twins</h2>
+        <span>02 ENVIRONMENTS</span>
+      </div>
+      <div class="twin-grid">
+        <a class="twin-card" href="../simulator/">
+          <div class="twin-image">
+            <img
+              src="./assets/shelf.webp"
+              width="1200"
+              height="800"
+              alt="트랙형 OMX 로봇과 ArUco 상자가 놓인 2단 선반의 실제 웹 트윈 화면"
+            /><span class="runtime-tag">WEB · 바로 실행</span>
+          </div>
+          <div class="twin-copy">
+            <span class="twin-index">01 / PERCEPTION &amp; MANIPULATION</span>
+            <h3>Shelf twin<span aria-hidden="true">↗</span></h3>
+            <p>
+              최신 리더 로봇과 2단 선반. 팔·그리퍼와 물체 배치를 조작하고 ROS 2
+              텔레메트리를 확인합니다.
+            </p>
+            <div class="capabilities">
+              <span>기구학 조작</span><span>ArUco 1–4</span
+              ><span>ROS 2 수신</span>
+            </div>
+            <span class="card-action"
+              >브라우저에서 열기 <span aria-hidden="true">→</span></span
+            >
+          </div>
+        </a>
+        <a class="twin-card native-card" href="./mujoco.html">
+          <div class="twin-image">
+            <img
+              src="./assets/delivery.webp"
+              width="1200"
+              height="800"
+              alt="MuJoCo에서 렌더링한 기존 OMX 배송 로봇과 물체 타워"
+            /><span class="runtime-tag native">DESKTOP · PC 실행</span>
+          </div>
+          <div class="twin-copy">
+            <span class="twin-index">02 / LEARNING &amp; SIMULATION</span>
+            <h3>OMX MuJoCo<span aria-hidden="true">↗</span></h3>
+            <p>
+              기존 배송 물리 시뮬레이터와 새 선반 표시 장면. 웹과 같은 색상과
+              조명으로 로컬에서 살펴봅니다.
+            </p>
+            <div class="capabilities">
+              <span>배송 물리</span><span>선반 표시</span
+              ><span>로컬 Python</span>
+            </div>
+            <span class="card-action"
+              >장면과 실행 방법 보기 <span aria-hidden="true">→</span></span
+            >
+          </div>
+        </a>
+      </div>
+      <div class="hub-footer">
+        <p>
+          <span class="status-dot" aria-hidden="true"></span>선반 트윈은 기구학
+          표시용이며, 새 선반 RL 정책은 준비 중입니다.
+        </p>
+        <a
+          href="https://github.com/KweonTJ"
+          target="_blank"
+          rel="noopener noreferrer"
+          >프로젝트 저장소 ↗</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

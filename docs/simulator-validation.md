@@ -13,3 +13,12 @@ Verified on 2026-10-16 (Asia/Seoul).
 The normal apt-based Dockerfile could not be built in this execution environment because access to `packages.ros.org` is blocked. For the ROS integration test, the official humble source was built in a separate validation image using the already-installed ROS base dependencies and signed Ubuntu packages. No package/TLS verification was disabled. Native apt/container instructions depend on that host being reachable from the user's bridge PC.
 
 A production ROS domain, bridge host, TLS endpoint, and real-robot data source are not assigned yet. The public website provides local kinematic manipulation plus configurable read-only telemetry input; this verification does not claim live hardware access, a running production gateway, collision-safe trajectories, or shelf-policy inference.
+
+## Lab selection and native scenes
+
+Verified on 2026-10-16 (UTC).
+
+- **50 browser checks passed** at widths 1440, 768, 390 and 320 px: Lab and desktop guide images load without overflow/errors; the shelf card opens the working WebGL viewer; its five controls load; back navigation returns to selection; desktop card opens the scene/launch guide; homepage navigation and callout both target Lab.
+- **6 client telemetry tests passed** after adding the selection page; the existing shelf viewer URL, model and ROS protocol are unchanged.
+- Native source: `KweonTJ/omx_train_ws`. **5 native tests passed**: three complete URDF-vs-MJCF body-transform checks, gripper/clamp/reset checks, and exact equality of 1,000-step legacy physics before/after styling. The original model/hash/mesh contract check also passed.
+- Both native scenes rendered successfully using MuJoCo 3.3.7 and EGL. Preview images are real renders. Desktop GUI mouse/keyboard interaction and full PPO replay were not run in this headless environment. The documented native viewer uses MuJoCo's built-in Control panel; only the existing PPO viewer executes learned-policy inference.
