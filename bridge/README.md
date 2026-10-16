@@ -96,6 +96,9 @@ python3 -m unittest discover -s bridge/test -v
 # Check visualization-domain input after running the bridge
 ROS_DOMAIN_ID=16 ros2 topic echo /web_twin/joint_states --once
 curl http://127.0.0.1:8769/health
+
+# Optional ROS process-cleanup integration check (isolated test domains 229/228)
+python3 bridge/integration/check_launcher_cleanup.py
 ```
 
 The source domain/server are currently unassigned. There is no active real-robot connection or server deployment bundled with the GitHub Pages site. See [the browser lab documentation](../docs/simulator.md) for the local kinematic controls and model provenance.

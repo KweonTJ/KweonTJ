@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Start the actual ROS 2 domain_bridge and a read-only web gateway."""
 import argparse
+import os
 from pathlib import Path
 import shutil
 import signal
@@ -45,8 +46,8 @@ def main():
     signal.signal(signal.SIGINT, stop)
     signal.signal(signal.SIGTERM, stop)
     try:
-        children.append(subprocess.Popen(bridge))
-        children.append(subprocess.Popen(gateway))
+        children.append(subprocess.Popen(bridge, start_new_session=True))
+        children.append(subprocess.Popen(gateway, start_new_session=True))
         print(f'ROS domain {args.source_domain} -> {args.host_domain} -> ws://{args.bind}:{args.port}/twin', flush=True)
         while not stopped:
             failed = [child for child in children if child.poll() is not None]
@@ -58,13 +59,20 @@ def main():
         return 1
     finally:
         for child in children:
-            if child.poll() is None:
-                child.terminate()
+            try:
+                # ros2 run starts the C++ bridge as a grandchild; stop its whole group.
+                os.killpg(child.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
         for child in children:
             try:
                 child.wait(timeout=5)
             except subprocess.TimeoutExpired:
-                child.kill(); child.wait()
+                try:
+                    os.killpg(child.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                child.wait()
     return 0
 
 
