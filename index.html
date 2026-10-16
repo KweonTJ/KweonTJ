@@ -171,58 +171,36 @@
           </div>
           <div class="category-map" aria-label="Research topic map">
             <div class="category-map-top">
-              <span>KTJ / KNOWLEDGE GRAPH</span
-              ><span id="category-summary">06 TOPICS / 32 REPOSITORIES</span>
+              <span>KTJ / ORBITAL ATLAS</span
+              ><span id="category-summary">06 TOPICS / 02 TWINS</span>
             </div>
             <div class="category-stage" id="category-stage">
-              <svg
-                class="category-edges"
-                viewBox="0 0 1000 500"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <defs>
-                  <radialGradient id="map-glow">
-                    <stop stop-color="#e9a383" stop-opacity=".08" />
-                    <stop offset="1" stop-color="#e9a383" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
-                <ellipse
-                  cx="500"
-                  cy="250"
-                  rx="350"
-                  ry="240"
-                  fill="url(#map-glow)"
-                />
-                <path
-                  data-category-edge="learning"
-                  d="M500 250 Q335 240 230 90"
-                />
-                <path
-                  data-category-edge="perception"
-                  d="M500 250 Q600 185 580 60"
-                />
-                <path
-                  data-category-edge="autonomy"
-                  d="M500 250 Q690 190 860 175"
-                />
-                <path
-                  data-category-edge="systems"
-                  d="M500 250 Q605 375 770 395"
-                />
-                <path
-                  data-category-edge="simulation"
-                  d="M500 250 Q385 310 400 440"
-                />
-                <path
-                  data-category-edge="foundations"
-                  d="M500 250 Q290 235 120 320"
-                />
+              <svg class="solar-orbits" id="solar-orbits" aria-hidden="true">
+                <defs id="solar-defs"></defs>
+                <g id="solar-stars"></g>
+                <g id="solar-rings"></g>
+                <g id="solar-trails"></g>
               </svg>
-              <div class="map-origin">
+              <span
+                class="solar-coordinate solar-coordinate-top"
+                aria-hidden="true"
+                >KTJ—06 / ORBITAL ATLAS</span
+              >
+              <span
+                class="solar-coordinate solar-coordinate-bottom"
+                aria-hidden="true"
+                >LEARNING / PERCEPTION / SYSTEMS</span
+              >
+              <a
+                class="map-origin"
+                href="https://github.com/KweonTJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open KweonTJ on GitHub"
+              >
                 <span class="origin-dot" aria-hidden="true"></span
-                ><span>ROBOTICS</span><small>LEARN · PERCEIVE · BUILD</small>
-              </div>
+                ><span>KWEONTJ</span><small>OPEN MY GITHUB ↗</small>
+              </a>
               <button
                 class="category-node category-learning"
                 type="button"
@@ -288,11 +266,49 @@
                 ><small>Algorithms &amp; experiments</small
                 ><span class="category-count">Explore projects ↗</span>
               </button>
+              <a
+                class="category-node twin-node twin-shelf"
+                data-orbit-twin="shelf"
+                href="./simulator/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Shelf Twin in a new tab"
+                style="--node-color: #78d6d3"
+                ><span class="category-dot" aria-hidden="true"></span
+                ><strong>Shelf Twin</strong
+                ><small>Interactive digital twin</small
+                ><span class="category-count">WEB · OPEN TWIN ↗</span></a
+              >
+              <a
+                class="category-node twin-node twin-mujoco"
+                data-orbit-twin="mujoco"
+                href="./lab/mujoco.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open OMX MuJoCo scenes and PC launch guide in a new tab"
+                style="--node-color: #d1a5e3"
+                ><span class="category-dot" aria-hidden="true"></span
+                ><strong>OMX MuJoCo</strong
+                ><small>Native simulation scenes</small
+                ><span class="category-count">DESKTOP · VIEW SCENES ↗</span></a
+              >
             </div>
-            <p class="category-hint">
-              <span class="hint-dot" aria-hidden="true"></span>Choose a topic.
-              Follow its projects.<span>CLICK TO EXPLORE ↗</span>
-            </p>
+            <div class="category-hint">
+              <p>
+                <span class="hint-dot" aria-hidden="true"></span>Choose a world.
+                Explore its projects.
+              </p>
+              <div class="orbit-controls">
+                <span id="orbit-status" role="status">ORBITAL MOTION</span
+                ><button
+                  id="orbit-toggle"
+                  type="button"
+                  aria-label="Pause orbital motion"
+                >
+                  Pause orbits <span aria-hidden="true">Ⅱ</span>
+                </button>
+              </div>
+            </div>
           </div>
           <noscript
             ><p class="map-noscript">

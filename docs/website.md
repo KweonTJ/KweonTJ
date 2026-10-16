@@ -10,7 +10,7 @@ From the repository root:
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open the server locally to inspect the website. The main Work section displays topic categories only. A category opens an internal dialog with its project graph and notes. Use arrows to focus graph nodes, Enter/Space to select, and Escape to close. The Motion button and the operating system's reduced-motion preference disable parallax and animated effects. The contact link opens email; Copy email works on a secure origin or localhost.
+Open the server locally to inspect the website. The main Work section displays six orbiting topic worlds and two digital-twin shortcuts; the central sun links to the GitHub profile. A category opens an internal dialog with its project graph and notes. Use arrows to focus graph nodes, Enter/Space to select, and Escape to close. The Motion button and the operating system's reduced-motion preference disable parallax and animated effects. The contact link opens email; Copy email works on a secure origin or localhost.
 
 ## GitHub Pages
 
@@ -31,7 +31,7 @@ The visual direction combines the layered landscapes and parallax of [Reel_23](h
 - `assets/fonts/`: Manrope and Instrument Serif, distributed under their included SIL Open Font License files, retrieved from Fontsource.
 - `assets/icons/`: technology marks, documented in [icon provenance](../assets/icons/README.md).
 
-The homepage presents six topic categories, with 32 connected repositories inside an internal project explorer. The README retains five selected projects and `cbnuai@chungbuk.ac.kr`. Project summaries are based on the [repository index](repositories.md); simulation work is not presented as hardware validation. See [knowledge map details](knowledge-map.md).
+The homepage presents six topic planets, two separate digital-twin planets and a central sun linking to `https://github.com/KweonTJ`, with 32 connected repositories inside an internal project explorer. The README retains five selected projects and `cbnuai@chungbuk.ac.kr`. Project summaries are based on the [repository index](repositories.md); simulation work is not presented as hardware validation. See [knowledge map details](knowledge-map.md).
 
 ## Interactive shelf page
 

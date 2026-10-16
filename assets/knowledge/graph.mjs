@@ -1,5 +1,6 @@
 import { repositories, topics, inventory } from "./data.mjs";
 import { filterRepositories, labelLines, makeGraph } from "./model.mjs";
+import { createSolarSystem } from "./solar.mjs";
 const $ = (id) => document.getElementById(id);
 const svg = $("knowledge-graph"),
   viewport = $("graph-viewport"),
@@ -597,33 +598,6 @@ dialog.addEventListener("click", (e) => {
   )
     dialog.close();
 });
-function categoryEdges() {
-  const locations = compact.matches
-    ? [
-        [23, 14],
-        [75, 18],
-        [79, 47],
-        [75, 81],
-        [24, 82],
-        [21, 46],
-      ]
-    : [
-        [23, 18],
-        [58, 12],
-        [86, 35],
-        [77, 79],
-        [40, 88],
-        [12, 64],
-      ];
-  const cx = 500,
-    cy = compact.matches ? 270 : 250;
-  for (const [i, t] of topics.entries()) {
-    const path = document.querySelector(`[data-category-edge="${t.id}"]`);
-    const [x, y] = [locations[i][0] * 10, locations[i][1] * 5];
-    path.setAttribute("d", `M${cx} ${cy} Q${(cx + x) / 2} ${cy} ${x} ${y}`);
-    path.style.setProperty("--edge-color", t.color);
-  }
-}
 for (const button of document.querySelectorAll("[data-open-topic]")) {
   const id = button.dataset.openTopic,
     t = topicById(id),
@@ -637,22 +611,10 @@ for (const button of document.querySelectorAll("[data-open-topic]")) {
   button.setAttribute("aria-haspopup", "dialog");
   button.setAttribute("aria-controls", "project-dialog");
   button.addEventListener("click", () => openTopic(id));
-  const active = (enabled) =>
-    document
-      .querySelector(`[data-category-edge="${id}"]`)
-      .classList.toggle("is-active", enabled);
-  button.addEventListener("pointerenter", () => active(true));
-  button.addEventListener("pointerleave", () => active(false));
-  button.addEventListener("focus", () => active(true));
-  button.addEventListener("blur", () => active(false));
 }
 $("category-summary").textContent =
-  String(topics.length).padStart(2, "0") +
-  " TOPICS / " +
-  repositories.length +
-  " REPOSITORIES";
+  String(topics.length).padStart(2, "0") + " TOPICS / " + "02 TWINS";
 compact.addEventListener("change", () => {
-  categoryEdges();
   if (dialog.open) render();
 });
-categoryEdges();
+createSolarSystem();

@@ -17,28 +17,7 @@
   position: relative;
   isolation: isolate;
 }
-.category-edges {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.category-edges path {
-  fill: none;
-  stroke: #7a899c;
-  stroke-opacity: 0.28;
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-  transition:
-    stroke 0.2s,
-    stroke-opacity 0.2s;
-}
-.category-edges path.is-active {
-  stroke: var(--edge-color, #e9a383);
-  stroke-opacity: 0.95;
-  stroke-width: 1.5;
-}
+
 .map-origin {
   position: absolute;
   left: 50%;
@@ -963,4 +942,372 @@
 }
 .backlink-arrow {
   flex-shrink: 0;
+}
+/* Orbital atlas: topic labels stay upright while their worlds circle Robotics. */
+.category-stage {
+  height: 600px;
+}
+.solar-orbits {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.solar-ring {
+  fill: none;
+  stroke: #8897b2;
+  stroke-width: 1;
+  stroke-opacity: 0.12;
+}
+.solar-ring.ring-0 {
+  stroke: #e9a383;
+  stroke-opacity: 0.12;
+}
+.solar-ring.ring-2 {
+  stroke-opacity: 0.27;
+}
+.solar-ring.ring-3 {
+  stroke-dasharray: 2 10;
+  stroke-opacity: 0.18;
+}
+.solar-trail {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.solar-star {
+  fill: #b8c7df;
+}
+.solar-coordinate {
+  position: absolute;
+  font:
+    7px ui-monospace,
+    monospace;
+  letter-spacing: 0.12em;
+  color: #52637d;
+  pointer-events: none;
+}
+.solar-coordinate-top {
+  left: 8px;
+  top: 12px;
+}
+.solar-coordinate-bottom {
+  right: 8px;
+  bottom: 12px;
+}
+.map-origin {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -43px);
+  z-index: 3;
+}
+.origin-dot {
+  width: 86px;
+  height: 86px;
+  position: relative;
+  isolation: isolate;
+  margin: 0 auto 20px;
+  border: 1px solid #f9c79c65;
+  background: radial-gradient(
+    circle at 36% 31%,
+    #fff2cf 0%,
+    #f6cb8b 18%,
+    #e7985e 43%,
+    #c56649 75%,
+    #743c36 100%
+  );
+  box-shadow:
+    0 0 0 8px #e9a38306,
+    0 0 0 24px #e9a38304,
+    0 0 80px #e9a38335,
+    0 0 150px #e9a38313,
+    inset -10px -12px 20px #6c2a3545;
+}
+.origin-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: url("../landscape/texture.svg") center/180%;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  animation: solar-surface-spin 55s linear infinite;
+  animation-play-state: var(--solar-play-state, paused);
+}
+.origin-dot::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid #e9a38314;
+  box-shadow: 0 0 25px #e9a38312;
+}
+.category-stage[data-orbit-state="running"] {
+  --solar-play-state: running;
+}
+.category-stage.is-solar .category-node {
+  left: 0;
+  top: 0;
+  transform: translate3d(var(--orbit-x), var(--orbit-y), 0)
+    translate(-50%, -50%);
+  width: calc(var(--planet-size) + 16px);
+  height: calc(var(--planet-size) + 16px);
+  min-width: 44px;
+  min-height: 44px;
+  max-width: none;
+  display: block;
+  padding: 0;
+  background: transparent;
+  border-radius: 50%;
+  transition: none;
+}
+.category-stage.is-solar .category-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--planet-size);
+  height: var(--planet-size);
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--node-color) 30%, transparent);
+  background: radial-gradient(
+    circle at 29% 23%,
+    #fff9 0%,
+    var(--node-color) 22%,
+    color-mix(in srgb, var(--node-color) 40%, #25314b) 55%,
+    #0a1020 91%
+  );
+  box-shadow:
+    inset -7px -7px 12px #03071388,
+    0 0 22px -8px color-mix(in srgb, var(--node-color) 30%, transparent);
+}
+.category-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: url("../landscape/texture.svg") center/160%;
+  mix-blend-mode: soft-light;
+  opacity: 0.48;
+}
+.category-simulation .category-dot::after {
+  content: "";
+  position: absolute;
+  width: 176%;
+  height: 42%;
+  left: -38%;
+  top: 30%;
+  border: 2px solid #dcc58b65;
+  border-left-color: #dcc58b20;
+  border-bottom-color: #dcc58bba;
+  border-radius: 50%;
+  transform: rotate(-26deg);
+  box-shadow: 0 0 0 3px #dcc58b08;
+}
+.category-label {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + var(--planet-size) / 2 + 13px);
+  width: var(--label-width);
+  transform: translateX(calc(-50% + var(--label-offset, 0px)));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.category-node:hover .category-dot,
+.category-node:focus-visible .category-dot {
+  box-shadow:
+    inset -7px -7px 12px #03071388,
+    0 0 0 8px color-mix(in srgb, var(--node-color) 7%, transparent),
+    0 0 32px color-mix(in srgb, var(--node-color) 20%, transparent);
+}
+.category-node:hover strong,
+.category-node:focus-visible strong {
+  color: var(--node-color);
+}
+.category-hint {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+}
+.category-hint > p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.orbit-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.orbit-controls > span {
+  font:
+    7px ui-monospace,
+    monospace;
+  letter-spacing: 0.08em;
+  color: #71809a;
+}
+.orbit-controls button {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 11px;
+  min-height: 32px;
+  color: #c7b5ab;
+  background: #ffffff02;
+  font-size: 10px;
+}
+.orbit-controls button:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: #e9a38355;
+}
+.orbit-controls button:disabled {
+  color: #68758a;
+  cursor: default;
+}
+@keyframes solar-surface-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 1000px) {
+  .category-node strong {
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .category-stage {
+    height: 620px;
+  }
+  .map-origin {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -28px);
+  }
+  .origin-dot {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    box-shadow:
+      0 0 0 7px #e9a38306,
+      0 0 60px #e9a38330,
+      0 0 100px #e9a38314;
+  }
+  .map-origin > span:not(.origin-dot) {
+    font-size: 10px;
+  }
+  .category-node strong {
+    font-size: 12px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .category-label {
+    top: calc(50% + var(--planet-size) / 2 + 11px);
+  }
+  .category-count {
+    margin-top: 6px;
+  }
+  .category-hint {
+    display: block;
+    padding-top: 18px;
+  }
+  .orbit-controls {
+    justify-content: space-between;
+    margin-top: 17px;
+  }
+  .orbit-controls button {
+    min-height: 40px;
+    font-size: 10px;
+    padding: 9px 13px;
+  }
+  .solar-coordinate {
+    font-size: 6px;
+  }
+  .solar-coordinate-top {
+    left: 5px;
+  }
+  .solar-coordinate-bottom {
+    right: 5px;
+  }
+}
+@media (max-width: 360px) {
+  .category-node strong {
+    font-size: 11px;
+  }
+  .category-count {
+    font-size: 6px;
+  }
+}
+a.map-origin {
+  pointer-events: auto;
+  border-radius: 50%;
+}
+a.map-origin:hover .origin-dot {
+  box-shadow:
+    0 0 0 10px #e9a3830a,
+    0 0 95px #e9a38355,
+    0 0 170px #e9a38320;
+}
+a.map-origin small {
+  display: block;
+  color: #e0ac8b;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+a.map-origin:hover small {
+  color: #ffd4b3;
+}
+.category-stage.solar-compact .category-node strong {
+  font-size: 12px;
+  white-space: normal;
+}
+.category-stage.solar-compact .category-node small {
+  display: none;
+}
+@media (max-width: 360px) {
+  .category-stage.solar-compact .category-node strong {
+    font-size: 11px;
+  }
+  a.map-origin small {
+    font-size: 7px;
+  }
+}
+.twin-node .category-label strong {
+  color: var(--node-color);
+}
+.twin-node .category-count {
+  padding: 3px 5px;
+  border: 1px solid color-mix(in srgb, var(--node-color) 25%, transparent);
+  border-radius: 3px;
+  margin-top: 9px;
+  white-space: nowrap;
+}
+.twin-shelf .category-dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px dashed #78d6d355;
+  border-radius: 50%;
+}
+.twin-mujoco .category-dot::after {
+  content: "";
+  position: absolute;
+  width: 146%;
+  height: 40%;
+  left: -23%;
+  top: 30%;
+  border: 1px solid #d1a5e355;
+  transform: rotate(28deg);
+  border-radius: 50%;
+}
+@media (max-width: 700px) {
+  .twin-node .category-count {
+    margin-top: 6px;
+    padding: 2px 4px;
+    font-size: 6px;
+  }
 }
