@@ -4,7 +4,7 @@ import { solarLayout } from "../assets/knowledge/solar.mjs";
 
 test("worlds complete a continuous orbit without rotating their text", () => {
   for (const [width, height] of [
-    [296, 620],
+    [280, 280],
     [1240, 600],
   ]) {
     const initial = solarLayout(width, height, 0),
@@ -20,7 +20,7 @@ test("worlds complete a continuous orbit without rotating their text", () => {
 });
 test("planet bodies and upright labels remain inside the responsive stage for a full revolution", () => {
   for (const width of [280, 296, 366, 688, 928, 1240]) {
-    const height = width < 700 ? 620 : 600;
+    const height = width < 700 ? Math.min(width, 440) : 600;
     for (let second = 0; second < 76; second += 0.25) {
       const l = solarLayout(width, height, second);
       for (const p of l.worlds) {
@@ -29,7 +29,7 @@ test("planet bodies and upright labels remain inside the responsive stage for a 
         assert.ok(p.y - p.size / 2 >= 0 && p.y + p.size / 2 <= height);
         assert.ok(p.x + p.labelOffset - p.labelWidth / 2 >= 4);
         assert.ok(p.x + p.labelOffset + p.labelWidth / 2 <= width - 4);
-        assert.ok(p.y + p.size / 2 + 13 + (width < 700 ? 50 : 75) < height);
+        assert.ok(p.y + p.size / 2 + p.labelGap + p.labelHeight < height);
       }
     }
   }
@@ -37,12 +37,16 @@ test("planet bodies and upright labels remain inside the responsive stage for a 
 test("neighboring topic labels do not overlap as the orbit moves", () => {
   for (const width of [280, 296, 366, 688, 928, 1240])
     for (let second = 0; second < 76; second += 0.25) {
-      const l = solarLayout(width, width < 700 ? 620 : 600, second);
+      const l = solarLayout(
+        width,
+        width < 700 ? Math.min(width, 440) : 600,
+        second,
+      );
       const labels = l.worlds.map((p) => ({
         left: p.x + p.labelOffset - p.labelWidth / 2,
-        top: p.y + p.size / 2 + 13,
+        top: p.y + p.size / 2 + p.labelGap,
         width: p.labelWidth,
-        height: width < 700 ? 50 : 75,
+        height: p.labelHeight,
       }));
       for (let i = 0; i < labels.length; i++)
         for (let j = i + 1; j < labels.length; j++) {
@@ -60,4 +64,13 @@ test("neighboring topic labels do not overlap as the orbit moves", () => {
           );
         }
     }
+});
+
+test("compact orbits remain circular and clear the profile sun", () => {
+  for (const width of [280, 296, 320, 350, 390, 500, 688]) {
+    const l = solarLayout(width, Math.min(width, 440));
+    assert.equal(l.rx, l.ry);
+    for (const p of l.worlds)
+      assert.ok(Math.hypot(p.x - l.cx, p.y - l.cy) > 28 + p.size / 2 + 24);
+  }
 });

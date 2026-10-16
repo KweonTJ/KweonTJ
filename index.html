@@ -341,8 +341,8 @@
               </button>
             </header>
             <p id="dialog-help" class="dialog-help">
-              Select a project node to read its note. Lines connect shared
-              themes.
+              Explore this world’s project system. Hover to pause, then select a
+              planet to read its note.
             </p>
             <div
               class="graph-filters"
@@ -413,10 +413,10 @@
                   <p id="graph-empty" class="graph-empty" hidden>
                     No projects match this search. Try another term or topic.
                   </p>
-                  <p id="graph-mobile-hint" class="graph-mobile-hint" hidden>
-                    Choose a topic to unfold its projects.
-                  </p>
                 </div>
+                <p id="graph-mobile-hint" class="graph-mobile-hint" hidden>
+                  Choose a topic to unfold its projects.
+                </p>
                 <div class="graph-bottom">
                   <span>Drag to arrange · Ctrl + scroll to zoom</span>
                   <div
@@ -424,6 +424,14 @@
                     role="group"
                     aria-label="Graph view"
                   >
+                    <button
+                      id="graph-orbit-toggle"
+                      class="graph-orbit-toggle"
+                      type="button"
+                      aria-label="Pause project orbits"
+                    >
+                      Pause orbits
+                    </button>
                     <button
                       id="graph-zoom-out"
                       type="button"

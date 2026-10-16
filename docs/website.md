@@ -10,7 +10,7 @@ From the repository root:
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open the server locally to inspect the website. The main Work section displays six orbiting topic worlds and two digital-twin shortcuts; the central sun links to the GitHub profile. A category opens an internal dialog with its project graph and notes. Use arrows to focus graph nodes, Enter/Space to select, and Escape to close. The Motion button and the operating system's reduced-motion preference disable parallax and animated effects. The contact link opens email; Copy email works on a secure origin or localhost.
+Open the server locally to inspect the website. The main Work section displays six orbiting topic worlds and two digital-twin shortcuts; the central sun links to the GitHub profile. A category opens an internal dialog with a colored project system: related project planets orbit the selected subject, and notes use the same planet/ring details. Hover or focus pauses the graph, with a separate Pause/Resume orbits control. The main atlas uses circular compact orbits with numbered worlds and a matching readable topic/twin directory. On phones and narrow tablets, graph and notes stack; the graph keeps readable labels and supports drag-to-pan instead of shrinking everything to fit. Use arrows to focus graph nodes, Enter/Space to select, and Escape to close. The Motion button and the operating system's reduced-motion preference disable parallax and animated effects. The contact link opens email; Copy email works on a secure origin or localhost.
 
 ## GitHub Pages
 
@@ -39,4 +39,4 @@ The homepage opens [Shelf Twin Lab](https://kweontj.github.io/KweonTJ/simulator/
 
 ## Digital Twin Lab
 
-The Lab navigation and homepage callout open `lab/`, a visual selection page for available twins. The browser shelf viewer keeps its `simulator/` URL and direct project link. Desktop MuJoCo has a separate `lab/mujoco.html` preview and launch guide, with its runtime clearly labeled. Pages includes both directories. Native source lives in `KweonTJ/omx_train_ws`; the existing delivery training model remains unchanged.
+The Lab navigation and homepage callout open `lab/`, a visual selection page for available twins. The browser shelf viewer keeps its `simulator/` URL and direct project link. Desktop MuJoCo has a separate `lab/mujoco.html` preview and launch guide, with its runtime clearly labeled. Pages includes both directories. Native source lives in `KweonTJ/omx_train_ws`; the existing delivery training model remains unchanged. `assets/knowledge/world.css` and `world.mjs` share the orbital headers, star background, motion controls and return navigation across the Lab, shelf viewer and MuJoCo guide. Shelf uses teal, MuJoCo uses lilac, and Lab uses the homepage peach. Decorative satellite motion pauses offscreen/in hidden tabs and respects reduced motion. Mobile planet bodies remain circular and narrow headings/navigation wrap without horizontal page overflow.

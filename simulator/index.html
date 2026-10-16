@@ -20,13 +20,21 @@
       { "imports": { "three": "./vendor/three/three.module.js" } }
     </script>
     <script type="module" src="./app.js"></script>
+    <link rel="stylesheet" href="../assets/knowledge/world.css" />
+    <script type="module" src="../assets/knowledge/world.mjs"></script>
   </head>
-  <body class="lab-body">
+  <body
+    class="lab-body world-page"
+    data-world-label="WORLD 07 / SHELF TWIN"
+    style="--world-accent: #78d6d3"
+  >
     <header class="lab-header">
       <a href="../" class="wordmark" aria-label="포트폴리오로 돌아가기"
         >KTJ<span>.</span></a
-      ><span class="lab-breadcrumb">ROBOTICS / INTERACTIVE LAB</span
-      ><a class="back-link" href="../lab/">← 트윈 선택</a>
+      ><span class="lab-breadcrumb">ROBOTICS / INTERACTIVE LAB</span>
+      <nav class="world-nav" aria-label="실험실 탐색">
+        <a href="../#work">← 행성 지도</a><a href="../lab/">트윈 선택</a>
+      </nav>
     </header>
     <main class="lab-main">
       <div class="lab-intro">

@@ -1,12 +1,13 @@
 import { repositories, topics, inventory } from "./data.mjs";
 import { filterRepositories, labelLines, makeGraph } from "./model.mjs";
 import { createSolarSystem } from "./solar.mjs";
+import { createProjectOrbits } from "./project-orbits.mjs";
 const $ = (id) => document.getElementById(id);
 const svg = $("knowledge-graph"),
   viewport = $("graph-viewport"),
   inspector = $("graph-detail");
 const NS = "http://www.w3.org/2000/svg";
-const compact = matchMedia("(max-width: 700px)");
+const compact = matchMedia("(max-width: 900px)");
 const dialog = $("project-dialog");
 let opener;
 const state = {
@@ -23,6 +24,18 @@ let graph,
   edgeElements = [],
   drag,
   hovered = "";
+const projectMotion = createProjectOrbits({
+  svg,
+  dialog,
+  button: $("graph-orbit-toggle"),
+  onFrame() {
+    for (const [id, g] of elements) {
+      const n = nodes.get(id);
+      g.setAttribute("transform", `translate(${n.x} ${n.y})`);
+    }
+    positionEdges();
+  },
+});
 const el = (tag, cls, text) => {
   const n = document.createElement(tag);
   if (cls) n.className = cls;
@@ -93,7 +106,15 @@ function updateInspector() {
     r ? r.name : t ? t.label : "Follow the connections.",
   );
   title.id = "graph-detail-title";
-  inspector.append(eyebrow, title);
+  const color = r ? topicById(r.topics[0]).color : t ? t.color : "#e9a383";
+  inspector.style.setProperty("--detail-color", color);
+  const planet = el("div", "detail-planet");
+  planet.setAttribute("aria-hidden", "true");
+  planet.append(
+    el("span", "detail-planet-body"),
+    el("span", "detail-planet-ring"),
+  );
+  inspector.append(eyebrow, planet, title);
   if (r) {
     inspector.append(el("p", "detail-kind", r.kind));
     if (r.image) {
@@ -191,6 +212,7 @@ function updateInspector() {
 }
 function updateHighlight() {
   const id = hovered || state.selected;
+  svg.dataset.highlightKind = nodes.get(id)?.kind || "root";
   const active = id && id !== "root" && nodes.has(id);
   const connected = new Set([id]);
   if (active)
@@ -220,6 +242,31 @@ function focusNode(id) {
   for (const [key, g] of elements) g.tabIndex = key === id ? 0 : -1;
   elements.get(id)?.focus({ preventScroll: true });
 }
+function revealNode(id) {
+  const node = nodes.get(id),
+    element = elements.get(id);
+  if (!node || !element) return;
+  const bounds = svg.getBoundingClientRect(),
+    target = element.getBoundingClientRect();
+  if (
+    target.left < bounds.left + 8 ||
+    target.right > bounds.right - 8 ||
+    target.top < bounds.top + 8 ||
+    target.bottom > bounds.bottom - 30
+  ) {
+    const box = svg.viewBox.baseVal;
+    state.pan = {
+      x: box.x + box.width / 2 - node.x * state.zoom,
+      y: box.y + box.height / 2 - node.y * state.zoom,
+    };
+    transform();
+  }
+  element.scrollIntoView({
+    block: "nearest",
+    inline: "nearest",
+    behavior: "instant",
+  });
+}
 function transform() {
   viewport.setAttribute(
     "transform",
@@ -237,18 +284,40 @@ function positionEdges() {
 }
 function resetView() {
   state.zoom = 1;
+  // Keep phone labels readable; pan/zoom explores the rest of the system.
+  if (compact.matches && svg.classList.contains("has-orbits")) {
+    const box = svg.viewBox.baseVal,
+      scale = Math.min(
+        svg.clientWidth / box.width,
+        svg.clientHeight / box.height,
+      ),
+      label = svg.querySelector(".node-project text"),
+      fontSize = label ? parseFloat(getComputedStyle(label).fontSize) : 20;
+    if (scale > 0)
+      state.zoom = Math.max(1, Math.min(2.5, 11 / (fontSize * scale)));
+  }
   state.pan = { x: 0, y: 0 };
   transform();
 }
 function render() {
+  projectMotion.stop();
   graph = makeGraph({ ...state, compact: compact.matches });
+  dialog.style.setProperty(
+    "--system-color",
+    topicById(state.topic)?.color || "#e9a383",
+  );
   nodes = new Map(graph.nodes.map((n) => [n.id, n]));
   elements.clear();
   edgeElements = [];
   viewport.replaceChildren();
   const edgeGroup = se("g", { "aria-hidden": "true", class: "graph-edges" }),
     nodeGroup = se("g", { class: "graph-nodes" });
-  viewport.append(edgeGroup, nodeGroup);
+  const decoration = se("g", {
+    class: "project-orbit-decor",
+    "aria-hidden": "true",
+  });
+  const gradients = se("defs");
+  viewport.append(gradients, decoration, edgeGroup, nodeGroup);
   for (const e of graph.edges) {
     const path = se("path", { class: "graph-edge" });
     edgeGroup.append(path);
@@ -273,6 +342,26 @@ function render() {
       transform: `translate(${n.x} ${n.y})`,
     });
     g.style.setProperty("--node-color", n.color);
+    const gradient = se("radialGradient", {
+      id: "project-world-" + n.id,
+      cx: "30%",
+      cy: "25%",
+      r: "78%",
+    });
+    for (const [offset, color] of [
+      ["0%", "#f6e9df"],
+      ["23%", n.color],
+      ["62%", n.color],
+      ["100%", "#070d19"],
+    ])
+      gradient.append(
+        se("stop", {
+          offset,
+          "stop-color": color,
+          "stop-opacity": offset === "62%" ? 0.5 : 1,
+        }),
+      );
+    gradients.append(gradient);
     // A full-size invisible target is easier to click than a tiny graph dot.
     const lines = labelLines(n.label),
       width = Math.max(65, ...lines.map((l) => l.length * 8.5));
@@ -289,17 +378,18 @@ function render() {
     g.append(
       se("circle", {
         class: "node-halo",
-        r: n.kind === "root" ? 34 : n.kind === "topic" ? 25 : 18,
+        r: n.kind === "root" ? 49 : n.kind === "topic" ? 45 : 24,
       }),
     );
     g.append(
       se("circle", {
         class: "node-core",
-        r: n.kind === "root" ? 11 : n.kind === "topic" ? 8 : 4.5,
+        r: n.kind === "root" ? 30 : n.kind === "topic" ? 29 : 13,
+        style: "fill:url(#project-world-" + n.id + ")",
       }),
     );
     const text = se("text", {
-      y: n.kind === "root" ? 39 : 29,
+      y: n.kind === "root" ? 55 : n.kind === "topic" ? 57 : 34,
       "text-anchor": "middle",
       "aria-hidden": "true",
     });
@@ -315,7 +405,7 @@ function render() {
     if (n.kind === "topic") {
       const count = se("text", {
         class: "node-count",
-        y: -24,
+        y: -49,
         "text-anchor": "middle",
         "aria-hidden": "true",
       });
@@ -335,6 +425,9 @@ function render() {
     minY = Math.min(-60, ...ys) - 65,
     maxY = Math.max(60, ...ys) + 100;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
+  projectMotion.configure(graph);
+  svg.removeAttribute("hidden");
+  graphWidth = svg.clientWidth;
   resetView();
   if (![...elements.values()].some((g) => g.tabIndex === 0)) {
     const id = nodes.has("root") ? "root" : graph.nodes[0]?.id;
@@ -354,9 +447,12 @@ function render() {
     graph.repositories.length + " / " + repositories.length + " repositories";
   $("graph-empty").hidden = graph.repositories.length !== 0;
   $("graph-mobile-hint").hidden =
-    !compact.matches || !!state.topic || !!state.query;
+    !compact.matches || !graph.repositories.length;
+  $("graph-mobile-hint").textContent =
+    state.topic || state.query
+      ? "Drag to explore · project list below."
+      : "Choose a topic to unfold its projects.";
   $("graph-fallback").hidden = true;
-  svg.removeAttribute("hidden");
   $("dialog-title").textContent = state.topic
     ? topicById(state.topic).label
     : "Connected projects";
@@ -480,6 +576,7 @@ svg.addEventListener("pointermove", (e) => {
   const p = point(e);
   if (Math.hypot(p.x - drag.start.x, p.y - drag.start.y) > 5) drag.moved = true;
   if (!drag.moved) return;
+  projectMotion.pause();
   const dx = p.x - drag.last.x,
     dy = p.y - drag.last.y;
   if (drag.id) {
@@ -563,6 +660,7 @@ svg.addEventListener("pointerleave", () => {
 });
 svg.addEventListener("focusin", (e) => {
   hovered = e.target.closest("[data-node]")?.dataset.node || "";
+  revealNode(hovered);
   updateHighlight();
 });
 svg.addEventListener("focusout", () => {
@@ -577,13 +675,14 @@ function openTopic(id) {
   state.selected = id;
   hovered = "";
   $("graph-search").value = "";
-  render();
   document.documentElement.classList.add("dialog-open");
   dialog.showModal();
+  render();
   dialog.scrollTop = 0;
 }
 $("dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("close", () => {
+  projectMotion.stop();
   document.documentElement.classList.remove("dialog-open");
   opener?.focus({ preventScroll: true });
 });
@@ -617,4 +716,11 @@ $("category-summary").textContent =
 compact.addEventListener("change", () => {
   if (dialog.open) render();
 });
+let graphWidth = 0;
+new ResizeObserver(([entry]) => {
+  const width = entry.contentRect.width;
+  if (width > 0 && width !== graphWidth && dialog.open && compact.matches)
+    resetView();
+  graphWidth = width;
+}).observe(svg);
 createSolarSystem();

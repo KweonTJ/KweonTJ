@@ -7,9 +7,11 @@ export function solarLayout(width, height, seconds = 0) {
   const compact = width < 700;
   const cx = width / 2,
     cy = height / 2;
-  const rx = Math.max(40, Math.min(width / 2 - (compact ? 64 : 116), 470));
-  const ry = Math.min(height / 2 - (compact ? 95 : 112), 220);
-  const labelWidth = compact ? (width < 330 ? 104 : 120) : 190;
+  const rx = compact
+    ? Math.max(40, Math.min(width, height) / 2 - 48)
+    : Math.max(40, Math.min(width / 2 - 116, 470));
+  const ry = compact ? rx : Math.min(height / 2 - 112, 220);
+  const labelWidth = compact ? 28 : 190;
   return {
     cx,
     cy,
@@ -19,7 +21,7 @@ export function solarLayout(width, height, seconds = 0) {
       const angle = (phase * Math.PI) / 180 + (seconds * Math.PI * 2) / PERIOD;
       const x = cx + Math.cos(angle) * rx,
         y = cy + Math.sin(angle) * ry;
-      const size = SIZES[i] * (compact ? 0.76 : 1);
+      const size = SIZES[i] * (compact ? 0.68 : 1);
       const spread =
         Math.sign(x - cx) *
         Math.max(
@@ -36,6 +38,8 @@ export function solarLayout(width, height, seconds = 0) {
         y,
         size,
         labelWidth,
+        labelHeight: compact ? 12 : 75,
+        labelGap: compact ? 10 : 13,
         labelOffset: labelX - x,
         depth: Math.sin(angle),
       };
@@ -54,6 +58,11 @@ export function createSolarSystem() {
   const dialog = document.getElementById("project-dialog");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const buttons = [...stage.querySelectorAll(".category-node")];
+  const directory = document.createElement("div");
+  directory.className = "solar-directory";
+  directory.setAttribute("role", "group");
+  directory.setAttribute("aria-label", "Topics and digital twins");
+  stage.after(directory);
   const NS = "http://www.w3.org/2000/svg";
   const make = (tag, attrs = {}) => {
     const e = document.createElementNS(NS, tag);
@@ -75,10 +84,42 @@ export function createSolarSystem() {
   for (const [i, button] of buttons.entries()) {
     const label = document.createElement("span");
     label.className = "category-label";
+    label.dataset.orbitIndex = String(i + 1).padStart(2, "0");
     for (const child of [...button.children])
       if (!child.classList.contains("category-dot")) label.append(child);
     button.append(label);
     const color = button.style.getPropertyValue("--node-color").trim();
+    const entry = document.createElement(
+      button.tagName === "A" ? "a" : "button",
+    );
+    entry.className = "solar-world-link";
+    entry.style.setProperty("--node-color", color);
+    if (button.tagName === "A") {
+      for (const attr of ["href", "target", "rel", "aria-label"])
+        entry.setAttribute(attr, button.getAttribute(attr));
+      entry.dataset.worldTwin = button.dataset.orbitTwin;
+    } else {
+      entry.type = "button";
+      entry.dataset.worldTopic = button.dataset.openTopic;
+      entry.setAttribute("aria-haspopup", "dialog");
+      entry.setAttribute("aria-controls", "project-dialog");
+      entry.addEventListener("click", () => button.click());
+    }
+    const index = document.createElement("span");
+    index.className = "solar-world-index";
+    index.textContent = label.dataset.orbitIndex;
+    index.setAttribute("aria-hidden", "true");
+    const copy = document.createElement("span");
+    for (const [tag, source] of [
+      ["strong", "strong"],
+      ["small", ".category-count"],
+    ]) {
+      const line = document.createElement(tag);
+      line.textContent = button.querySelector(source).textContent;
+      copy.append(line);
+    }
+    entry.append(index, copy);
+    directory.append(entry);
     const gradient = make("linearGradient", {
       id: "solar-trail-" + i,
       gradientUnits: "userSpaceOnUse",
@@ -150,9 +191,9 @@ export function createSolarSystem() {
     // Only these static elements need a size update, not animation-frame updates.
   }
   function resize() {
+    stage.classList.toggle("solar-compact", stage.clientWidth < 700);
     width = stage.clientWidth;
     height = stage.clientHeight;
-    stage.classList.toggle("solar-compact", width < 700);
     const { cx, cy, rx, ry } = solarLayout(width, height, elapsed);
     for (const { e, scale } of ellipses) {
       for (const [k, v] of Object.entries({
