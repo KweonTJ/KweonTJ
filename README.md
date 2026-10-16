@@ -2,7 +2,7 @@
 
 I’m **Kwon Taek Ju**, a robotics engineer working on **learning-based control, 3D perception, and robot systems**. My projects connect policy learning in simulation with the software that turns observations into robot motion.
 
-[Portfolio](https://kweontj.github.io/KweonTJ/) &nbsp; / &nbsp; [cbnuai@chungbuk.ac.kr](mailto:cbnuai@chungbuk.ac.kr) &nbsp; / &nbsp; [All projects](./docs/repositories.md)
+[Portfolio](https://kweontj.github.io/KweonTJ/) &nbsp; / &nbsp; [Shelf twin lab](https://kweontj.github.io/KweonTJ/simulator/) &nbsp; / &nbsp; [cbnuai@chungbuk.ac.kr](mailto:cbnuai@chungbuk.ac.kr) &nbsp; / &nbsp; [All projects](./docs/repositories.md)
 
 ## About
 

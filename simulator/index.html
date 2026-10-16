@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#090f1b" />
+    <meta
+      name="description"
+      content="Kwon Taek Ju의 최신 OMX 선반 디지털 트윈. 원본 로봇 모델로 팔과 그리퍼를 조작하고 ROS 2 텔레메트리를 연결합니다."
+    />
+    <title>Shelf Twin Lab — Kwon Taek Ju</title>
+    <link
+      rel="icon"
+      href="../assets/landscape/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./lab.css" />
+    <script type="importmap">
+      { "imports": { "three": "./vendor/three/three.module.js" } }
+    </script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body class="lab-body">
+    <header class="lab-header">
+      <a href="../" class="wordmark" aria-label="포트폴리오로 돌아가기"
+        >KTJ<span>.</span></a
+      ><span class="lab-breadcrumb">ROBOTICS / INTERACTIVE LAB</span
+      ><a class="back-link" href="../#work">← 포트폴리오</a>
+    </header>
+    <main class="lab-main">
+      <div class="lab-intro">
+        <div>
+          <p class="eyebrow">OMX / TWO-LEVEL SHELF</p>
+          <h1>Shelf twin <em>lab.</em></h1>
+          <p>
+            최근 선반 장면을 브라우저에서 살펴보고, 팔과 그리퍼를 직접 움직여
+            보세요.
+          </p>
+        </div>
+        <div class="lab-badges">
+          <span>기구학 디지털 트윈</span><span>선반 RL 정책 준비 중</span>
+        </div>
+      </div>
+      <div class="lab-layout">
+        <section class="viewport-shell" aria-label="선반 3D 장면">
+          <div class="viewport-top">
+            <span class="view-mode" id="view-mode">LOCAL SANDBOX</span
+            ><span id="model-state" role="status">모델 불러오는 중…</span>
+          </div>
+          <div
+            class="viewport"
+            id="viewport"
+            tabindex="0"
+            aria-label="3D 뷰. 드래그로 회전, 스크롤 또는 두 손가락으로 확대, Shift 드래그로 이동할 수 있습니다."
+          >
+            <div class="loading-overlay" id="loading-overlay">
+              <div class="loading-orbit" aria-hidden="true"></div>
+              <strong id="loading-text"
+                >원본 로봇 모델을 준비하고 있습니다.</strong
+              ><span id="loading-detail">메시와 재질을 불러옵니다.</span
+              ><button id="retry-load" hidden type="button">
+                다시 불러오기
+              </button>
+            </div>
+            <div class="camera-label" id="camera-label" hidden>
+              GRIPPER CAMERA · 가상 시점
+            </div>
+          </div>
+          <div class="viewport-toolbar">
+            <div class="camera-presets" role="group" aria-label="카메라 시점">
+              <button type="button" data-camera="orbit" class="active">
+                전체</button
+              ><button type="button" data-camera="front">정면</button
+              ><button type="button" data-camera="side">측면</button
+              ><button type="button" data-camera="top">위에서</button>
+            </div>
+            <div class="view-tools">
+              <button id="camera-feed" type="button" aria-pressed="false">
+                그리퍼 카메라</button
+              ><button id="fullscreen" type="button">전체화면</button>
+            </div>
+          </div>
+          <div class="telemetry-strip">
+            <div>
+              <span>END EFFECTOR / m</span><output id="eef-position">—</output>
+            </div>
+            <div>
+              <span>SELECTED OBJECT</span
+              ><output id="selected-summary">ID 1 · 하단</output>
+            </div>
+            <div>
+              <span>STATE SOURCE</span
+              ><output id="state-source">수동 조작</output>
+            </div>
+          </div>
+          <p class="view-hint">
+            드래그: 회전 &nbsp; · &nbsp; 휠/두 손가락: 확대 &nbsp; · &nbsp;
+            Shift 드래그: 이동
+          </p>
+        </section>
+        <aside class="control-panel" aria-label="장면 조작 패널">
+          <details class="panel-section" open>
+            <summary><span class="section-num">01</span> Robot control</summary>
+            <fieldset id="robot-controls" disabled>
+              <legend class="sr-only">팔과 그리퍼</legend>
+              <div class="preset-row">
+                <button type="button" id="pose-stay">Stay 자세</button
+                ><button type="button" id="pose-observe">관찰 자세</button>
+              </div>
+              <div id="joint-sliders"></div>
+              <div class="gripper-actions">
+                <button type="button" id="gripper-open">그리퍼 열기</button
+                ><button type="button" id="gripper-close">그리퍼 닫기</button>
+              </div>
+            </fieldset>
+            <div class="panel-switches">
+              <label><input type="checkbox" id="show-axes" /> 좌표축</label
+              ><label
+                ><input type="checkbox" id="auto-rotate" /> 자동 회전</label
+              >
+            </div>
+          </details>
+          <details class="panel-section" open>
+            <summary>
+              <span class="section-num">02</span> Target objects
+            </summary>
+            <div
+              id="object-selector"
+              class="object-selector"
+              role="group"
+              aria-label="관찰할 ArUco 물체"
+            >
+              <button type="button" data-object="1" aria-pressed="true">
+                ID 1</button
+              ><button type="button" data-object="2" aria-pressed="false">
+                ID 2</button
+              ><button type="button" data-object="3" aria-pressed="false">
+                ID 3</button
+              ><button type="button" data-object="4" aria-pressed="false">
+                ID 4
+              </button>
+            </div>
+            <fieldset id="object-controls" disabled>
+              <legend class="sr-only">선택 물체 배치</legend>
+              <label class="select-row"
+                >선반 위치<select id="object-level">
+                  <option value="0">하단</option>
+                  <option value="1">상단</option>
+                </select></label
+              >
+              <label class="range-row" for="object-x"
+                ><span>앞뒤 위치</span
+                ><output id="object-x-value">−60 mm</output
+                ><input
+                  id="object-x"
+                  type="range"
+                  min="-90"
+                  max="70"
+                  step="1"
+                  value="-60"
+              /></label>
+              <label class="range-row" for="object-y"
+                ><span>좌우 위치</span
+                ><output id="object-y-value">−80 mm</output
+                ><input
+                  id="object-y"
+                  type="range"
+                  min="-120"
+                  max="120"
+                  step="1"
+                  value="-80"
+              /></label>
+            </fieldset>
+            <p class="object-status" id="object-status" role="status">
+              ID 1을 선택했습니다.
+            </p>
+          </details>
+          <details class="panel-section connection-section">
+            <summary>
+              <span class="section-num">03</span> ROS 2 connection
+            </summary>
+            <p class="panel-help">
+              domain_bridge로 가져온 관절·인지 상태를 표시합니다. 서버 주소는
+              나중에 연결할 수 있습니다.
+            </p>
+            <form id="connection-form">
+              <label for="bridge-url">WebSocket 게이트웨이</label
+              ><input
+                id="bridge-url"
+                type="url"
+                placeholder="wss://robot.example.com/twin"
+                autocomplete="off"
+                spellcheck="false"
+                required
+              />
+              <div class="connection-buttons">
+                <button id="connect" type="submit" disabled>연결</button
+                ><button id="disconnect" type="button" disabled>
+                  연결 해제
+                </button>
+              </div>
+            </form>
+            <p class="connection-status" id="connection-status" role="status">
+              연결되지 않음 · 로컬 조작 모드
+            </p>
+            <p class="connection-detail" id="connection-detail"></p>
+            <a
+              href="https://github.com/KweonTJ/KweonTJ/blob/main/bridge/README.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="setup-link"
+              >domain_bridge 실행 안내 ↗</a
+            >
+          </details>
+          <button class="reset-scene" id="reset-scene" type="button" disabled>
+            장면 초기화
+          </button>
+        </aside>
+      </div>
+      <div class="lab-notes">
+        <p>
+          <strong>현재 장면</strong> 원본 리더 URDF + 100 mm 받침 위 2단 선반.
+          관절 한계와 선반 치수는 최신 저장소를 따릅니다.
+        </p>
+        <p>
+          이번 페이지는 기구학 조작·상태 시각화용입니다. 충돌·중력 기반 물리
+          시뮬레이션과 새 선반 RL 정책 실행은 포함하지 않습니다.
+        </p>
+        <a
+          href="https://github.com/KweonTJ/Omx_Turtle_Bot"
+          target="_blank"
+          rel="noopener noreferrer"
+          >원본 프로젝트 ↗</a
+        ><span id="source-version"></span>
+      </div>
+    </main>
+  </body>
+</html>

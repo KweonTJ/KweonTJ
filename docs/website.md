@@ -1,6 +1,6 @@
 # Portfolio website
 
-The website lives beside the profile README: `index.html`, `styles.css`, `script.js`, and `assets/`. It is plain HTML, CSS, and JavaScript, with local fonts and illustrations. No package install or build is required.
+The website lives beside the profile README: `index.html`, `styles.css`, `script.js`, `assets/`, and the separate `simulator/` route. It is plain HTML, CSS, and JavaScript, with local fonts and illustrations. No package install or build is required.
 
 ## Local preview
 
@@ -32,3 +32,7 @@ The visual direction combines the layered landscapes and parallax of [Reel_23](h
 - `assets/icons/`: technology marks, documented in [icon provenance](../assets/icons/README.md).
 
 The homepage and README share five selected projects and `cbnuai@chungbuk.ac.kr`. Project summaries are based on the [repository index](repositories.md); simulation work is not presented as hardware validation.
+
+## Interactive shelf page
+
+The homepage opens [Shelf Twin Lab](https://kweontj.github.io/KweonTJ/simulator/) in a new tab. The static deployment includes its local Three.js renderer, original robot meshes, and exported shelf model. See [simulator details](simulator.md) and [ROS 2 bridge setup](../bridge/README.md). ROS bridge processes run on a separate host, not on GitHub Pages.

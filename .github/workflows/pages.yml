@@ -8,6 +8,7 @@ on:
       - styles.css
       - script.js
       - assets/**
+      - simulator/**
       - .github/workflows/pages.yml
   workflow_dispatch:
 
@@ -36,6 +37,7 @@ jobs:
           mkdir _site
           cp index.html styles.css script.js _site/
           cp -R assets _site/assets
+          cp -R simulator _site/simulator
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

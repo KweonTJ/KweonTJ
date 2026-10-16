@@ -1,0 +1,44 @@
+# run_bridge.py overrides both IDs; the robot/source domain must be explicit.
+name: shelf_web_twin
+from_domain: 0
+to_domain: 16
+topics:
+  /joint_states:
+    type: sensor_msgs/msg/JointState
+    remap: /web_twin/joint_states
+    bidirectional: false
+    qos:
+      reliability: best_effort
+      durability: volatile
+      depth: 5
+  /perception/objects:
+    type: std_msgs/msg/String
+    remap: /web_twin/perception/objects
+    bidirectional: false
+    qos:
+      reliability: best_effort
+      durability: volatile
+      depth: 5
+  /perception/selected_info:
+    type: std_msgs/msg/String
+    remap: /web_twin/perception/selected_info
+    bidirectional: false
+    qos:
+      reliability: best_effort
+      durability: volatile
+      depth: 5
+  /rl_control/status:
+    type: std_msgs/msg/String
+    remap: /web_twin/task/status
+    bidirectional: false
+    qos:
+      reliability: best_effort
+      durability: volatile
+      depth: 5
+  /clock:
+    type: rosgraph_msgs/msg/Clock
+    bidirectional: false
+    qos:
+      reliability: best_effort
+      durability: volatile
+      depth: 5

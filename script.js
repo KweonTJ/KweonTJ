@@ -12,6 +12,7 @@ const projects = {
   },
   omx: {
     number: "02",
+    lab: "./simulator/",
     color: "#e7c68a",
     category: "MANIPULATION / POLICY & RUNTIME",
     title: "A learned correction.\nA steadier grasp.",
@@ -121,6 +122,15 @@ function selectProject(tab) {
       return a;
     }),
   );
+  if (project.lab) {
+    const lab = document.createElement("a");
+    lab.className = "text-link";
+    lab.href = project.lab;
+    lab.target = "_blank";
+    lab.rel = "noopener noreferrer";
+    lab.textContent = "Open shelf simulator";
+    links.prepend(lab);
+  }
   document.querySelector(".project-art").hidden = !!project.image;
   document.querySelector("#project-preview").hidden = !project.image;
 }
