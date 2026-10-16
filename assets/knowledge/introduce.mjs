@@ -72,11 +72,54 @@ for (const club of profile.clubs) {
   clubs.append(entry);
 }
 background.append(education, clubs);
+const publications = profile.publications || [];
+const research = make("section", "intro-publications");
+research.setAttribute("aria-labelledby", "intro-publications-title");
+research.append(make("p", "eyebrow", "03 / PUBLICATIONS"));
+const researchTitle = make("h3", "", "논문");
+researchTitle.id = "intro-publications-title";
+research.append(researchTitle);
+for (const publication of publications) {
+  const article = make("article", "intro-paper");
+  const top = make("div", "intro-paper-top");
+  const title = make("h4", "intro-paper-title", publication.title);
+  const link = make("a", "intro-paper-link", "DBpia ↗");
+  link.href = publication.url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.setAttribute("aria-label", publication.title + " — DBpia 논문 보기");
+  top.append(title, link);
+  article.append(top);
+  const citation = [publication.venue, publication.year, publication.pages]
+    .filter(Boolean)
+    .join(" · ");
+  if (citation) article.append(make("p", "intro-paper-citation", citation));
+  if (publication.authors?.length)
+    article.append(
+      make("p", "intro-paper-authors", publication.authors.join(" · ")),
+    );
+  article.append(make("p", "intro-paper-summary", publication.summary));
+  if (publication.summarySource)
+    article.append(
+      make(
+        "p",
+        "intro-paper-source",
+        publication.summarySource === "full-text"
+          ? "본문 기반 요약"
+          : "초록 기반 요약",
+      ),
+    );
+  research.append(article);
+}
 const work = make("section", "intro-github");
 const heading = make("div", "intro-github-heading");
 const labels = make("div");
 labels.append(
-  make("p", "eyebrow", "03 / SELECTED GITHUB"),
+  make(
+    "p",
+    "eyebrow",
+    (publications.length ? "04" : "03") + " / SELECTED GITHUB",
+  ),
   make("h3", "", "대표 GitHub"),
 );
 const github = make("a", "intro-profile-link", "KweonTJ ↗");
@@ -104,7 +147,9 @@ for (const [i, id] of profile.projects.entries()) {
   grid.append(a);
 }
 work.append(heading, grid);
-body.append(hero, contacts, background, work);
+body.append(hero, contacts, background);
+if (publications.length) body.append(research);
+body.append(work);
 open.addEventListener("click", () => {
   document.documentElement.classList.add("intro-open");
   dialog.showModal();
