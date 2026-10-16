@@ -44,10 +44,33 @@ I’m **Kwon Taek Ju**, a robotics engineer working on **learning-based control,
   <img src="./assets/icons/docker.svg" width="26" height="26" alt="Docker" />
 </p>
 
-| Area | Tools & methods |
-| :--- | :--- |
-| **Development** | C / C++ · Python · Linux · Git · Docker |
-| **Robot learning** | PyTorch · PPO · Stable-Baselines3 · JAX / Brax |
-| **Control & perception** | ROS 2 · ros2_control · TF2 · OpenCV · RGB-D |
-| **Simulation** | Isaac Sim / Gym · MuJoCo / MJX · Gazebo |
-| **Hardware** | Jetson · Raspberry Pi · Arduino · Dynamixel · CAN / UWB |
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="left" width="22%">Area</th>
+      <th align="left" width="1000">Tools &amp; methods</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Development</b></td>
+      <td>C / C++ · Python · Linux · Git · Docker</td>
+    </tr>
+    <tr>
+      <td><b>Robot learning</b></td>
+      <td>PyTorch · PPO · Stable-Baselines3 · JAX / Brax</td>
+    </tr>
+    <tr>
+      <td><b>Control &amp; perception</b></td>
+      <td>ROS 2 · ros2_control · TF2 · OpenCV · RGB-D</td>
+    </tr>
+    <tr>
+      <td><b>Simulation</b></td>
+      <td>Isaac Sim / Gym · MuJoCo / MJX · Gazebo</td>
+    </tr>
+    <tr>
+      <td><b>Hardware</b></td>
+      <td>Jetson · Raspberry Pi · Arduino · Dynamixel · CAN / UWB</td>
+    </tr>
+  </tbody>
+</table>
