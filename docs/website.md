@@ -16,11 +16,11 @@ Open the server locally to inspect the website. Project tabs work with click/tap
 
 The `Deploy portfolio to GitHub Pages` workflow publishes on changes to the website on `main`, or when run manually.
 
-If Pages is not enabled yet, select **Settings → Pages → Build and deployment → Source → GitHub Actions** in this repository, then run the workflow from Actions. The expected project-site URL is:
+GitHub Pages was enabled and the deployment [completed successfully on 2026-10-16](https://github.com/KweonTJ/KweonTJ/actions/runs/38860069502). The published project-site URL is:
 
 https://kweontj.github.io/KweonTJ/
 
-This URL depends on Pages being enabled and the deployment succeeding. The README links to the website source until the public deployment can be verified; after that, change the portfolio link to the published URL.
+The profile README links directly to the published portfolio. If Pages must be configured again, select **Settings → Pages → Build and deployment → Source → GitHub Actions**, then run the workflow manually. Successful deployment was confirmed from GitHub Actions; direct requests to the Pages hostname are blocked by the current execution environment’s network policy.
 
 ## Design and assets
 
